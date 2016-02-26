@@ -51,7 +51,9 @@ Technical Challenges (What interesting technical challenges did you solve?)
 
 Here's a walkthrough of implemented user stories:
 
-<img src='Wireframes_1.jpg' title='Wireframe Iteration 1' width='' alt='Video Walkthrough' />
+[Wireframes](Wireframe_2.jpg)
+
+[Walkthrough](camera_collectionView.gif)
 
 ## Notes
 
