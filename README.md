@@ -51,9 +51,9 @@ Technical Challenges (What interesting technical challenges did you solve?)
 
 Here's a walkthrough of implemented user stories:
 
-[Wireframes](Wireframe_2.jpg)
+![Wireframes](Wireframe_2.jpg)
 
-[Walkthrough](camera_collectionView.gif)
+![Walkthrough](camera_collectionView.gif)
 
 ## Notes
 
