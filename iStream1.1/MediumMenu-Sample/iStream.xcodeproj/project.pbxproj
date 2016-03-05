@@ -20,6 +20,9 @@
 		6E4206C01AB6E35000A51136 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08A6D11A87370000F6093C /* LinksViewController.swift */; };
 		6E4206C21AB6E35000A51136 /* SignoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E08A6D41A87370000F6093C /* SignoutViewController.swift */; };
 		6E4206C61AB6E56800A51136 /* MediumMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E4206C51AB6E56800A51136 /* MediumMenuItem.swift */; };
+		7B2D93E11C892737006E6BB5 /* StreamViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D93E01C892737006E6BB5 /* StreamViewCell.swift */; };
+		7B2D93F91C8B99A0006E6BB5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D93F81C8B99A0006E6BB5 /* DetailViewController.swift */; };
+		7B2D93FD1C8B9A61006E6BB5 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D93FC1C8B9A61006E6BB5 /* PhotosCollectionViewCell.swift */; };
 		BF08F3C81AD8CE0700A5FECD /* MediumMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = BF08F3C71AD8CE0700A5FECD /* MediumMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF08F3CE1AD8CE0800A5FECD /* MediumMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF08F3C31AD8CE0700A5FECD /* MediumMenu.framework */; };
 		BF08F3D71AD8CE0800A5FECD /* MediumMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF08F3D61AD8CE0800A5FECD /* MediumMenuTests.swift */; };
@@ -92,6 +95,9 @@
 		6E08A6DB1A87374A00F6093C /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		6E1F4AB41AB6CD6E0041955A /* MediumMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediumMenu.swift; path = ../../MediumMenu/MediumMenu.swift; sourceTree = "<group>"; };
 		6E4206C51AB6E56800A51136 /* MediumMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediumMenuItem.swift; path = ../../MediumMenu/MediumMenuItem.swift; sourceTree = "<group>"; };
+		7B2D93E01C892737006E6BB5 /* StreamViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamViewCell.swift; sourceTree = "<group>"; };
+		7B2D93F81C8B99A0006E6BB5 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7B2D93FC1C8B9A61006E6BB5 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF08F3C31AD8CE0700A5FECD /* MediumMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MediumMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF08F3C61AD8CE0700A5FECD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF08F3C71AD8CE0700A5FECD /* MediumMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediumMenu.h; sourceTree = "<group>"; };
@@ -159,6 +165,7 @@
 		6E08A6AA1A87369000F6093C /* iStream */ = {
 			isa = PBXGroup;
 			children = (
+				7B2D93E21C892905006E6BB5 /* Views */,
 				6E1F4AB61AB6CD780041955A /* iStreamMenu */,
 				6E08A6D01A87370000F6093C /* Controller */,
 				6E08A6AD1A87369000F6093C /* AppDelegate.swift */,
@@ -205,6 +212,7 @@
 				6E08A6D51A87370000F6093C /* StreamViewController.swift */,
 				6E08A6D11A87370000F6093C /* LinksViewController.swift */,
 				6E08A6D41A87370000F6093C /* SignoutViewController.swift */,
+				7B2D93F81C8B99A0006E6BB5 /* DetailViewController.swift */,
 			);
 			name = Controller;
 			path = View;
@@ -217,6 +225,15 @@
 				6E4206C51AB6E56800A51136 /* MediumMenuItem.swift */,
 			);
 			name = iStreamMenu;
+			sourceTree = "<group>";
+		};
+		7B2D93E21C892905006E6BB5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7B2D93E01C892737006E6BB5 /* StreamViewCell.swift */,
+				7B2D93FC1C8B9A61006E6BB5 /* PhotosCollectionViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		BF08F3C41AD8CE0700A5FECD /* MediumMenu */ = {
@@ -428,12 +445,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2D93F91C8B99A0006E6BB5 /* DetailViewController.swift in Sources */,
 				6E4206C61AB6E56800A51136 /* MediumMenuItem.swift in Sources */,
 				6E1F4AB51AB6CD6E0041955A /* MediumMenu.swift in Sources */,
 				6E4206BE1AB6E35000A51136 /* ProfileViewController.swift in Sources */,
 				6E4206BF1AB6E35000A51136 /* StreamViewController.swift in Sources */,
+				7B2D93FD1C8B9A61006E6BB5 /* PhotosCollectionViewCell.swift in Sources */,
 				6E4206C01AB6E35000A51136 /* LinksViewController.swift in Sources */,
 				6E4206C21AB6E35000A51136 /* SignoutViewController.swift in Sources */,
+				7B2D93E11C892737006E6BB5 /* StreamViewCell.swift in Sources */,
 				6E4206BB1AB6E34600A51136 /* AppDelegate.swift in Sources */,
 				6E4206BC1AB6E34600A51136 /* BaseViewController.swift in Sources */,
 				6E4206BD1AB6E34600A51136 /* NavigationController.swift in Sources */,
