@@ -3,17 +3,17 @@
 
 **Vemoja App** is a social app that lets you share your day through *streams* of pictures that are timestamped throughout the day/event.
 
-Time spent: **2** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can create a new live stream
-- [ ] User can add pictures to an existing live stream
+- [x] User can create a new live stream
+- [x] User can add pictures to an existing live stream
 - [ ] User can end a live stream to create a gif of the stream
-- [ ] 3 base view controllers setup
-- [ ] Custom UI with app logo added
+- [x] 3 base view controllers setup
+- [x] Custom UI with app logo added
 
 The following **optional** features are implemented:
 
@@ -53,14 +53,18 @@ Here's a walkthrough of implemented user stories:
 
 ![Wireframes](Wireframes_2.jpg)
 
-![Walkthrough](camera_collectionView.gif)
+![Walkthrough](demo1.gif)
 
 ## Notes
 
 Team members:
+
 1. Monte Thakkar
+
 2. Veronika Kotckovich
+
 3. Jasimine Iris
+
 
 ## License
 
