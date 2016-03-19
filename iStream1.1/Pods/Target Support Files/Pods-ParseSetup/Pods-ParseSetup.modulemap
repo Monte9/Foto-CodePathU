@@ -1,0 +1,6 @@
+framework module Pods_ParseSetup {
+  umbrella header "Pods-ParseSetup-umbrella.h"
+
+  export *
+  module * { export * }
+}

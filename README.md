@@ -3,7 +3,7 @@
 
 **Vemoja App** is a social app that lets you share your day through *streams* of pictures that are timestamped throughout the day/event.
 
-Time spent: **15** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -36,6 +36,14 @@ In addition to these, a few other guidelines to consider given the course materi
 - [ ] Projects should not try to do too much given that the project should be able to be developed in just a few weeks.
 - [ ] Product Evaluation Criteria
 
+## Video Walkthrough 
+
+Here's a walkthrough of implemented user stories:
+
+![Walkthrough](demo1.gif)
+
+![gif walkthrough](demo2.gif)
+
 ## Demo Day
 
 Each team will showcase the project they have built and give a tour to the class in a brief 5-7 min presentation to review the work we have done over the course of the class. On Demo Day, each team will present quickly on various aspects of their projects and introduce the class to what what they were able to build over the six weeks. The presentation should include:
@@ -45,15 +53,6 @@ Introduce the Team (Who built this product?)
 Inspiration (Why build this project?)
 Live Demo (Show the project to the class)
 Technical Challenges (What interesting technical challenges did you solve?)
-
-
-## Video Walkthrough 
-
-Here's a walkthrough of implemented user stories:
-
-![Wireframes](Wireframes_2.jpg)
-
-![Walkthrough](demo1.gif)
 
 ## Notes
 
@@ -65,6 +64,9 @@ Team members:
 
 3. Jasimine Iris
 
+/#WeWillWin!
+
+![Wireframes](Wireframes_2.jpg)
 
 ## License
 
