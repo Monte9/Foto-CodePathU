@@ -114,11 +114,12 @@ class XMCCamera: NSObject {
     // MARK: Configuration
     
     func addVideoInput() {
-        let device: AVCaptureDevice!
+        let device: AVCaptureDevice?
         
         if frontCamera == false {
             print("frontCamera:", frontCamera)
             device = self.deviceWithMediaTypeWithPosition(AVMediaTypeVideo, position: AVCaptureDevicePosition.Back)
+            print("here")
             do {
                 let input = try AVCaptureDeviceInput(device: device)
                 if self.session.canAddInput(input) {
@@ -127,6 +128,7 @@ class XMCCamera: NSObject {
             } catch {
                 print(error)
             }
+            print("here")
         }
         else if frontCamera == true {
             print("frontCamera:", frontCamera)
@@ -140,14 +142,6 @@ class XMCCamera: NSObject {
                 print(error)
             }
         }
-        //        do {
-        //            let input = try AVCaptureDeviceInput(device: device)
-        //            if self.session.canAddInput(input) {
-        //                self.session.addInput(input)
-        //            }
-        //        } catch {
-        //            print(error)
-        //        }
     }
     
     func addStillImageOutput() {

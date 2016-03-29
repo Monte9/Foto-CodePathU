@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import ImageIO
 
 var frontCamera:Bool=false
 
@@ -18,7 +19,7 @@ class PhotosViewController: UIViewController, XMCCameraDelegate, UICollectionVie
     @IBOutlet weak var cameraCapture: UIButton!
     @IBOutlet weak var usePhoto: UIButton!
     @IBOutlet weak var RetakePhoto: UIButton!
-    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var pullCamera: UIButton!
     
     
     
@@ -43,9 +44,7 @@ class PhotosViewController: UIViewController, XMCCameraDelegate, UICollectionVie
         usePhoto.hidden = true
         RetakePhoto.hidden = true
         self.initializeCamera()
-        
-        scrollView.delegate = self
-        scrollView.contentSize = CGSizeMake(320, 1250)
+
         //*************
         
         collectionView.delegate = self
@@ -190,7 +189,7 @@ class PhotosViewController: UIViewController, XMCCameraDelegate, UICollectionVie
         cameraCapture.hidden=false
         usePhoto.hidden = true
         RetakePhoto.hidden = true
-        let newImage = self.cameraStill.image
+        let newImage = Image(image: self.cameraStill.image!, id: streamId)
         images?.insert(newImage, atIndex: 0)
         UIView.animateWithDuration(0.225, animations: { () -> Void in
             self.cameraStill.alpha = 0.0;
@@ -201,6 +200,7 @@ class PhotosViewController: UIViewController, XMCCameraDelegate, UICollectionVie
                 self.cameraStill.image = nil;
                 //self.status = .Preview
         })
+        collectionView.reloadData()
     }
     
     // MARK: Camera Delegate
@@ -227,6 +227,16 @@ class PhotosViewController: UIViewController, XMCCameraDelegate, UICollectionVie
         })
     }
 
+    
+    @IBAction func onTap(sender: UITapGestureRecognizer) {
+        collectionView.frame = CGRect(x: 0, y: 68, width: 320, height: 500)
+        pullCamera.frame = CGRect(x: 137, y: 58, width: 50, height: 50)
+    }
+    
+    @IBAction func onPullCamera(sender: AnyObject) {
+         collectionView.frame = CGRect(x: 0, y: 568, width: 320, height: 500)
+        pullCamera.frame = CGRect(x: 137, y: 568, width: 50, height: 50)
+    }
     
     /*
     // MARK: - Navigation
