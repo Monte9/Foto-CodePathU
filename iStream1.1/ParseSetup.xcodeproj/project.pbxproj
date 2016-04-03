@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36102D701CB0CF0C00CEF610 /* gifViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36102D6F1CB0CF0C00CEF610 /* gifViewController.swift */; };
 		7B714E851CA8DF2A000AE54D /* XMCCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B714E841CA8DF2A000AE54D /* XMCCamera.swift */; };
 		7B714E871CB0A178000AE54D /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B714E861CB0A178000AE54D /* CameraViewController.swift */; };
 		7FF9AFF506847187F4BEFDFE /* Pods_ParseSetup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20169B466C4FED196A77E6 /* Pods_ParseSetup.framework */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		1D20169B466C4FED196A77E6 /* Pods_ParseSetup.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParseSetup.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D5C74FFCCEC2CBC7C03F000 /* Pods-ParseSetup.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseSetup.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ParseSetup/Pods-ParseSetup.debug.xcconfig"; sourceTree = "<group>"; };
+		36102D6F1CB0CF0C00CEF610 /* gifViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifViewController.swift; sourceTree = "<group>"; };
 		7B714E841CA8DF2A000AE54D /* XMCCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMCCamera.swift; sourceTree = "<group>"; };
 		7B714E861CB0A178000AE54D /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		D3B44963CEF8BA18668303D3 /* Pods-ParseSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseSetup/Pods-ParseSetup.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				FAA178441C993EF8007DF276 /* ImageCell.swift */,
 				FAA178461C993FB3007DF276 /* Image.swift */,
 				7B714E841CA8DF2A000AE54D /* XMCCamera.swift */,
+				36102D6F1CB0CF0C00CEF610 /* gifViewController.swift */,
 				FAE600521C94FDC200EB3713 /* Main.storyboard */,
 				FAE600551C94FDC200EB3713 /* Assets.xcassets */,
 				FAE600571C94FDC200EB3713 /* LaunchScreen.storyboard */,
@@ -144,7 +147,7 @@
 				TargetAttributes = {
 					FAE6004A1C94FDC100EB3713 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = C3V4QQ3VFL;
+						DevelopmentTeam = VXDJ95JBYF;
 					};
 				};
 			};
@@ -239,6 +242,7 @@
 				FAE6004F1C94FDC200EB3713 /* AppDelegate.swift in Sources */,
 				FAE600631C950BFA00EB3713 /* Stream.swift in Sources */,
 				FAA178431C993D6B007DF276 /* PhotosViewController.swift in Sources */,
+				36102D701CB0CF0C00CEF610 /* gifViewController.swift in Sources */,
 				FAA178451C993EF8007DF276 /* ImageCell.swift in Sources */,
 				7B714E871CB0A178000AE54D /* CameraViewController.swift in Sources */,
 			);
