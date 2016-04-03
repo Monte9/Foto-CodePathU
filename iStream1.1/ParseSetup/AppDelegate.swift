@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let thirdPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view3"), buttonText: "Explore iStream now!") {
-            let homeViewController = storyboard.instantiateViewControllerWithIdentifier("HomeViewController")
+            let homeViewController = storyboard.instantiateViewControllerWithIdentifier("camera")
             self.window?.rootViewController = homeViewController
             self.window?.makeKeyAndVisible()
         }
