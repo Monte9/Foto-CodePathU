@@ -1,7 +1,7 @@
 
 # CodePath Univ. Final project - *Vemoja App*
 
-**Vemoja App** is a social app that lets you share your day through *streams* of pictures that are timestamped throughout the day/event.
+**Vemoja App** is a social app that lets you share your day through *streams* of pictures that are timestamped throughout the day/event. 
 
 Time spent: **20** hours spent in total
 
@@ -44,6 +44,8 @@ Here's a walkthrough of implemented user stories:
 
 ![gif walkthrough](demo2.gif)
 
+![welcome screens added](iStream_welcome.gif)
+
 ## Demo Day
 
 Each team will showcase the project they have built and give a tour to the class in a brief 5-7 min presentation to review the work we have done over the course of the class. On Demo Day, each team will present quickly on various aspects of their projects and introduce the class to what what they were able to build over the six weeks. The presentation should include:
@@ -64,7 +66,11 @@ Team members:
 
 3. Jasimine Iris
 
-/#WeWillWin!
+
+## 3rd party libraries-
+
+1. [Onboard](https://github.com/mamaral/Onboard) - An iOS framework to easily create a beautiful and engaging onboarding experience with only a few lines of code.
+
 
 ![Wireframes](Wireframes_2.jpg)
 

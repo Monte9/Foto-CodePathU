@@ -1,13 +1,16 @@
 PODS:
   - Bolts/Tasks (1.6.0)
+  - Onboard (2.1.9)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
 
 DEPENDENCIES:
+  - Onboard
   - Parse
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  Onboard: 4d92c763ed15f939071dec12e87ed9e8dc036746
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
 
 COCOAPODS: 0.39.0
