@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PhotosViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -21,7 +21,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
@@ -33,6 +33,7 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
         }
     }
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images?.count ?? 0
@@ -68,7 +69,30 @@ class PhotosViewController: UIViewController, UICollectionViewDelegate, UICollec
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
+    // MARK: Button Actions
+    
+   /*
+    @IBAction func onUse(sender: AnyObject) {
+        cameraCapture.hidden=false
+        usePhoto.hidden = true
+        RetakePhoto.hidden = true
+        let newImage = Image(image: self.cameraStill.image!, id: streamId)
+        images?.insert(newImage, atIndex: 0)
+        UIView.animateWithDuration(0.225, animations: { () -> Void in
+            self.cameraStill.alpha = 0.0;
+            //self.cameraStatus.alpha = 0.0;
+            self.cameraPreview.alpha = 1.0;
+            //self.cameraCapture.setTitle("Capture", forState: UIControlState.Normal)
+            }, completion: { (done) -> Void in
+                self.cameraStill.image = nil;
+                //self.status = .Preview
+        })
+        collectionView.reloadData()
+    }
+    
+    */
 
     /*
     // MARK: - Navigation
