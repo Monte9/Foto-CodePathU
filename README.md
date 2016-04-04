@@ -58,11 +58,13 @@ Technical Challenges (What interesting technical challenges did you solve?)
 
 Team members:
 
-1. Monte Thakkar
+1. Jasmine Farrell
 
-2. Veronika Kotckovich
+2. Monte Thakkar
 
-3. Jasimine Iris
+3. Veronika Kotckovich
+
+
 
 /#WeWillWin!
 
