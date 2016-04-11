@@ -19,6 +19,8 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     @IBOutlet weak var cameraCapture: UIButton!
     @IBOutlet weak var usePhoto: UIButton!
     @IBOutlet weak var RetakePhoto: UIButton!
+    @IBOutlet weak var background: UIView!
+    @IBOutlet weak var flipCamera: UIButton!
     
     @IBOutlet weak var streams: UIButton!
     @IBOutlet weak var photos: UIButton!
@@ -30,6 +32,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     let vc = UIImagePickerController()
 
     override func viewDidLoad() {
+        frontCamera = false
         super.viewDidLoad()
         vc.delegate = self
         
@@ -41,6 +44,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     }
     
     override func viewDidAppear(animated: Bool) {
+        frontCamera = false
         vc.delegate = self
         //usePhoto.hidden = true
         //RetakePhoto.hidden = true
@@ -49,6 +53,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         self.initializeCamera()
         super.viewDidAppear(animated)
         self.establishVideoPreviewArea()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +99,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     
     @IBAction func captureFrame(sender: AnyObject) {
         cameraCapture.hidden=true
+        flipCamera.hidden=true
         photos.hidden=true
         streams.hidden=true
         usePhoto.hidden = false
@@ -121,19 +127,21 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     
     
     @IBAction func onRetake(sender: AnyObject) {
+        vc.delegate = self
+        
         cameraCapture.hidden=false
         usePhoto.hidden = true
         RetakePhoto.hidden = true
         photos.hidden=false
         streams.hidden=false
+        flipCamera.hidden=false
+        background.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
+        
         UIView.animateWithDuration(0.225, animations: { () -> Void in
             self.cameraStill.alpha = 0.0;
-            //self.cameraStatus.alpha = 0.0;
             self.cameraPreview.alpha = 1.0;
-            // self.cameraCapture.setTitle("Capture", forState: UIControlState.Normal)
             }, completion: { (done) -> Void in
                 self.cameraStill.image = nil;
-                //self.status = .Preview
         })
     }
     
@@ -187,6 +195,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         streams.hidden=true
         usePhoto.hidden = false
         RetakePhoto.hidden = false
+        background.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(1)
         vc.allowsEditing = true
         vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -200,6 +209,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         cameraStill.contentMode = .ScaleAspectFit
+        self.cameraStill.alpha = 1.0
         cameraStill.image = chosenImage
         dismissViewControllerAnimated(true, completion: nil)
     }
