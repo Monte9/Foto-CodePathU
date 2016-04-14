@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://dry-scrubland-71159.herokuapp.com/parse"
             })
         )
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let firstPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view1"), buttonText: "") {
+            print("Do nothing in the block")
+        }
+        
+        let secondPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view2"), buttonText: "") {
+            print("Do nothing")
+        }
+        
+        let thirdPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view3"), buttonText: "Explore iStream now!") {
+            let homeViewController = storyboard.instantiateViewControllerWithIdentifier("camera")
+            self.window?.rootViewController = homeViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "icon"), contents: [firstPage, secondPage, thirdPage])
+        
+        window?.rootViewController = onboardingVC
+        window?.makeKeyAndVisible()
+        
         
         return true
     }

@@ -7,5 +7,7 @@ target 'ParseSetup' do
 
 pod 'Parse'
 
+pod 'Onboard'
+
 end
 
