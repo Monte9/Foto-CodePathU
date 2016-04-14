@@ -156,7 +156,6 @@ class XMCCamera: NSObject {
     func deviceWithMediaTypeWithPosition(mediaType: NSString, position: AVCaptureDevicePosition) -> AVCaptureDevice {
         let devices: NSArray = AVCaptureDevice.devicesWithMediaType(mediaType as String)
         var captureDevice: AVCaptureDevice = devices.firstObject as! AVCaptureDevice
-        //var captureDevice: AVCaptureDevice = devices.firstObject as! AVCaptureDevice
         for device in devices {
             let d = device as! AVCaptureDevice
             if d.position == position {

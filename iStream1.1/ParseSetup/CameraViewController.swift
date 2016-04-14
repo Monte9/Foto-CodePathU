@@ -12,32 +12,48 @@ import ImageIO
 
 var frontCamera:Bool=false
 
-class CameraViewController: UIViewController, XMCCameraDelegate {
+class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var cameraStill: UIImageView!
     @IBOutlet weak var cameraPreview: UIView!
     @IBOutlet weak var cameraCapture: UIButton!
     @IBOutlet weak var usePhoto: UIButton!
     @IBOutlet weak var RetakePhoto: UIButton!
+    @IBOutlet weak var background: UIView!
+    @IBOutlet weak var flipCamera: UIButton!
+    
+    @IBOutlet weak var streams: UIButton!
+    @IBOutlet weak var photos: UIButton!
+    
     
     var preview: AVCaptureVideoPreviewLayer?
     var flippedImage: UIImage!
     var camera: XMCCamera?
+    let vc = UIImagePickerController()
 
     override func viewDidLoad() {
+        frontCamera = false
         super.viewDidLoad()
+        vc.delegate = self
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         usePhoto.hidden = true
         RetakePhoto.hidden = true
         self.initializeCamera()
     }
     
     override func viewDidAppear(animated: Bool) {
-        usePhoto.hidden = true
-        RetakePhoto.hidden = true
+        frontCamera = false
+        vc.delegate = self
+        //usePhoto.hidden = true
+        //RetakePhoto.hidden = true
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         self.initializeCamera()
         super.viewDidAppear(animated)
         self.establishVideoPreviewArea()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,6 +99,9 @@ class CameraViewController: UIViewController, XMCCameraDelegate {
     
     @IBAction func captureFrame(sender: AnyObject) {
         cameraCapture.hidden=true
+        flipCamera.hidden=true
+        photos.hidden=true
+        streams.hidden=true
         usePhoto.hidden = false
         RetakePhoto.hidden = false
         UIView.animateWithDuration(0.225, animations: { () -> Void in
@@ -108,17 +127,21 @@ class CameraViewController: UIViewController, XMCCameraDelegate {
     
     
     @IBAction func onRetake(sender: AnyObject) {
+        vc.delegate = self
+        
         cameraCapture.hidden=false
         usePhoto.hidden = true
         RetakePhoto.hidden = true
+        photos.hidden=false
+        streams.hidden=false
+        flipCamera.hidden=false
+        background.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
+        
         UIView.animateWithDuration(0.225, animations: { () -> Void in
             self.cameraStill.alpha = 0.0;
-            //self.cameraStatus.alpha = 0.0;
             self.cameraPreview.alpha = 1.0;
-            // self.cameraCapture.setTitle("Capture", forState: UIControlState.Normal)
             }, completion: { (done) -> Void in
                 self.cameraStill.image = nil;
-                //self.status = .Preview
         })
     }
     
@@ -156,7 +179,44 @@ class CameraViewController: UIViewController, XMCCameraDelegate {
         self.presentViewController(nextViewController, animated:false, completion:nil)
     }
     
+    @IBAction func usePthoto(sender: AnyObject) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("toStreams") as! UINavigationController
+        self.presentViewController(nextViewController, animated:false, completion:nil)
+        
+    }
 
+    @IBAction func onLibrary(sender: AnyObject) {
+        vc.delegate = self
+        
+        cameraCapture.hidden=true
+        photos.hidden=true
+        streams.hidden=true
+        usePhoto.hidden = false
+        RetakePhoto.hidden = false
+        background.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(1)
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(
+        picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [String : AnyObject])
+    {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        cameraStill.contentMode = .ScaleAspectFit
+        self.cameraStill.alpha = 1.0
+        cameraStill.image = chosenImage
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 /*
     // MARK: - Navigation
 
