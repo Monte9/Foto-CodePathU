@@ -29,16 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let firstPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view1"), buttonText: "") {
-            print("Do nothing in the block")
+        let firstPage = OnboardingContentViewController(title: "Take a picture", body: "Also lets you have a timer", image: nil, buttonText: "") {
         }
         
-        let secondPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view2"), buttonText: "") {
-            print("Do nothing")
+        let secondPage = OnboardingContentViewController(title: "Create new streams", body: "Add pictures to existing streams", image: nil, buttonText: "") {
         }
         
-        let thirdPage = OnboardingContentViewController(title: "iStream App", body: "", image: UIImage(named: "view3"), buttonText: "Explore iStream now!") {
-            let homeViewController = storyboard.instantiateViewControllerWithIdentifier("camera")
+        let thirdPage = OnboardingContentViewController(title: "Create a gif", body: "With the press of one button", image: nil, buttonText: "Explore iStream now!") {
+            let homeViewController = storyboard.instantiateViewControllerWithIdentifier("rootViewController")
             self.window?.rootViewController = homeViewController
             self.window?.makeKeyAndVisible()
         }
@@ -47,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = onboardingVC
         window?.makeKeyAndVisible()
-        
         
         return true
     }

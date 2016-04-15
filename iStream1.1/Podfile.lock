@@ -3,14 +3,20 @@ PODS:
   - Onboard (2.1.9)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
+  - RESideMenu (4.0.7)
+  - UIColor_Hex_Swift (2.1)
 
 DEPENDENCIES:
   - Onboard
   - Parse
+  - RESideMenu (~> 4.0.7)
+  - UIColor_Hex_Swift (~> 2.1)
 
 SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   Onboard: 4d92c763ed15f939071dec12e87ed9e8dc036746
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
 
 COCOAPODS: 0.39.0

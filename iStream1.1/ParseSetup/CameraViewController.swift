@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import ImageIO
+import RESideMenu
 
 var frontCamera:Bool=false
 
@@ -202,6 +203,9 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
+    @IBAction func onProfileMenu(sender: AnyObject) {
+        self.presentLeftMenuViewController(self)
+    }
     
     func imagePickerController(
         picker: UIImagePickerController,

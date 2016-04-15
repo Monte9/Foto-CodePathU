@@ -9,5 +9,9 @@ pod 'Parse'
 
 pod 'Onboard'
 
+pod 'RESideMenu', '~> 4.0.7'
+
+pod 'UIColor_Hex_Swift', '~> 2.1'
+
 end
 
