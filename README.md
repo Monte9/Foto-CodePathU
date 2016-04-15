@@ -40,11 +40,7 @@ In addition to these, a few other guidelines to consider given the course materi
 
 Here's a walkthrough of implemented user stories:
 
-![Walkthrough](demo1.gif)
-
-![gif walkthrough](demo2.gif)
-
-![welcome screens added](iStream_welcome.gif)
+![iStream App Walkthrough](demo.gif)
 
 ## Demo Day
 
@@ -66,13 +62,27 @@ Team members:
 
 3. Jasimine Iris
 
+Every great app starts with a concept. The best way to arrive at that concept is to consider the problem you want your app to solve. Great apps solve a single, well-defined problem. For example, the Settings app allows users to adjust all of the settings on their device. It provides a single interface for users to accomplish a related set of tasks.
+An app concept doesn’t have to be completely polished or finished when you start developing your app. Still, it helps to have an idea of where you’re going and what you need to do to get there.
+
+Here are some key questions to consider when arriving at a concept:
+
+Who is your audience? 
+Your app content and experience will differ depending on whether you’re writing a children’s game, a to-do list app, or even a test app for your own learning.
+
+What is the purpose of your app? 
+It’s important for an app to have a clearly defined purpose. Part of defining the purpose is understanding what one thing will motivate users to use your app.
+
+What problem is your app trying to solve? 
+An app should solve a single problem well instead of trying to offer solutions to multiple distinct problems. If you find that your app is trying to solve unrelated problems, you might consider writing multiple apps.
+
+What content will your app incorporate? 
+Consider what type of content your app will present to users and how they’ll interact with it. Design the user interface to complement the type of content that’s presented in the app.
+
 
 ## 3rd party libraries-
 
 1. [Onboard](https://github.com/mamaral/Onboard) - An iOS framework to easily create a beautiful and engaging onboarding experience with only a few lines of code.
-
-
-![Wireframes](Wireframes_2.jpg)
 
 ## License
 
