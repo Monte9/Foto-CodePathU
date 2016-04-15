@@ -35,12 +35,15 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     let vc = UIImagePickerController()
 
     override func viewDidLoad() {
-        frontCamera = false
+
         super.viewDidLoad()
-        vc.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        vc.delegate = self
+        frontCamera = false
+        
+        //Make the status bar white color
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+
         usePhoto.hidden = true
         RetakePhoto.hidden = true
         self.initializeCamera()
@@ -119,8 +122,9 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         self.camera?.captureStillImage({ (image) -> Void in
             if image != nil {
                 if frontCamera == true{
-                    var flippedImage: UIImage = UIImage(CGImage: image!.CGImage!, scale: image!.scale, orientation: .LeftMirrored)
+                    let flippedImage: UIImage = UIImage(CGImage: image!.CGImage!, scale: image!.scale, orientation: .LeftMirrored)
                     self.cameraStill.image = flippedImage;
+                    self.imageTaken = image;
                 }
                 else{
                     self.cameraStill.image = image;

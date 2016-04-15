@@ -29,15 +29,9 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
             if error == nil {
                 self.addStreams = streams
                 self.tableView.reloadData()
-                print("Stream info found and loaded!")
             }
         })
-        
-        print("The image that I have in this VC is: \(imageToAdd)")
-        
-        if (imageToAdd != nil) {
-            let newImage = Image(image: imageToAdd!, id: "URBZfermLx")
-        }
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,6 +63,19 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
         let rootViewController = storyBoard.instantiateViewControllerWithIdentifier("rootViewController") as! RootViewController
         self.presentViewController(rootViewController, animated:false, completion:nil)
     }
+    
+    @IBAction func addImageToStreams(sender: UITapGestureRecognizer) {
+        print("Got the touch")
+        if (imageToAdd != nil) {
+            let newImage = Image(image: imageToAdd!, id: "vo4f3JTtGw")
+            print("THIS IS THE ONE: \(newImage)")
+            
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let rootViewController = storyBoard.instantiateViewControllerWithIdentifier("toStreams") as! UINavigationController
+            self.presentViewController(rootViewController, animated:false, completion:nil)
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

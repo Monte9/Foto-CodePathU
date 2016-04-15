@@ -13,14 +13,14 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
     @IBOutlet weak var collectionView: UICollectionView!
     
     var images: [Image]? = []
-//    
-//    var sampleImage: [String]? = ["sf1", "sf2", "sf3","sf4", "sf5"]
-//    var i = 0
-//    
+ 
     var streamId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Make the status bar white color
+        UIApplication.sharedApplication().statusBarStyle = .Default
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -34,6 +34,11 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
         }
     }
     
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+//        let size = CGSize(width: collectionView.frame.size.width, height: collectionView.frame.size.height)
+//        
+//        return size
+//    }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images?.count ?? 0
@@ -48,32 +53,11 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
         
         return cell
     }
-    
-    @IBAction func addNewImage(sender: AnyObject) {
-        print("Add new image clicked.. taking to camera view")
-        
-       // let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
-        //images?.insert(newImage, atIndex: 0)
-        
-//        if (i > 4) {
-//            i = i%4
-//            let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
-//            images?.insert(newImage, atIndex: 0)
-//            i += 1
-//        } else {
-//            let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
-//            images?.insert(newImage, atIndex: 0)
-//            i += 1
-//        }
-        collectionView.reloadData()
-    }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     // MARK: Button Actions
     
@@ -97,14 +81,16 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
     }
     
     */
-
-    // MARK: - Navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue == "takePictureSegue") {
-            var cameraViewController = sender?.destinationViewController as! CameraViewController
-            cameraViewController.profileButton.hidden = true
-            cameraViewController.streams.hidden = true
-            print("Got Camera VC.. do something here")
-        }
+        let gifNavController = segue.destinationViewController as! UINavigationController
+        let giffyViewController = gifNavController.topViewController as! gifViewController
+        giffyViewController.myImages = self.images!
+        
+        //        if (segue == "takePictureSegue") {
+//            let cameraViewController = sender?.destinationViewController as! CameraViewController
+//            cameraViewController.profileButton.hidden = true
+//            cameraViewController.streams.hidden = true
+//        }
     }
 }

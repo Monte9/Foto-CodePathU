@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Make the status bar white color
+        UIApplication.sharedApplication().statusBarStyle = .Default
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -25,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if error == nil {
                 self.streams = streams
                 self.tableView.reloadData()
-                print("Stream info found and loaded!")
             }
         })
     }
