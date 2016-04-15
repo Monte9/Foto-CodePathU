@@ -8,7 +8,7 @@
 
 import UIKit
 import Parse
-import Onboard
+import Onboard //https://github.com/mamaral/Onboard
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,8 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        //Make the status bar white color
         UIApplication.sharedApplication().statusBarStyle = .LightContent
         
+        //Parse setup
         Parse.initializeWithConfiguration(
             ParseClientConfiguration(block: { (configuration:ParseMutableClientConfiguration) -> Void in
                 configuration.applicationId = "super.app"
@@ -29,25 +31,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let defaultView: UIViewController
         
-        let firstPage = OnboardingContentViewController(title: "Take a picture", body: "Also lets you have a timer", image: nil, buttonText: "") {
+        //User NSUserDefaults to check if it is a newUser
+        let isNewUser = NSUserDefaults.standardUserDefaults().objectForKey("isNewUser")
+        
+        print("New user? \(isNewUser)")
+        
+        if (isNewUser == nil) {
+            //Welcome screen setup- need to customize
+            let firstPage = OnboardingContentViewController(title: "Take a picture", body: "Also lets you have a timer", image: nil, buttonText: "") {
+            }
+            
+            let secondPage = OnboardingContentViewController(title: "Create new streams", body: "Add pictures to existing streams", image: nil, buttonText: "") {
+            }
+            
+            let thirdPage = OnboardingContentViewController(title: "Create a gif", body: "With the press of one button", image: nil, buttonText: "Explore iStream now!") {
+                let homeViewController = storyboard.instantiateViewControllerWithIdentifier("rootViewController")
+                self.window?.rootViewController = homeViewController
+                self.window?.makeKeyAndVisible()
+            }
+            
+            //show welcome screen
+            defaultView = OnboardingViewController(backgroundImage: UIImage(named: "icon"), contents: [firstPage, secondPage, thirdPage])
+            //Set the isNewUser value so that we dont show welcome screen the second time
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isNewUser")
+        } else {
+            //take user to camera view since he is not a new user
+            defaultView = storyboard.instantiateViewControllerWithIdentifier("rootViewController")
         }
         
-        let secondPage = OnboardingContentViewController(title: "Create new streams", body: "Add pictures to existing streams", image: nil, buttonText: "") {
-        }
-        
-        let thirdPage = OnboardingContentViewController(title: "Create a gif", body: "With the press of one button", image: nil, buttonText: "Explore iStream now!") {
-            let homeViewController = storyboard.instantiateViewControllerWithIdentifier("rootViewController")
-            self.window?.rootViewController = homeViewController
-            self.window?.makeKeyAndVisible()
-        }
-        
-        let onboardingVC = OnboardingViewController(backgroundImage: UIImage(named: "icon"), contents: [firstPage, secondPage, thirdPage])
-        
-        window?.rootViewController = onboardingVC
+        window?.rootViewController = defaultView
         window?.makeKeyAndVisible()
-        
+
         return true
     }
 
@@ -72,7 +89,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
 }
 
