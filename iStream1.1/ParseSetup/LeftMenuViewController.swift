@@ -33,15 +33,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.bounces = false
         tableView.scrollsToTop = false
         tableView.autoresizingMask = UIViewAutoresizing.FlexibleTopMargin
-        
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
-        
-        print("Table view init complete")
-        
         self.view.addSubview(tableView)
-        
-        print("Table view subview added")
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -81,7 +74,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Number of items in menu \(items.count)")
         return items.count
     }
     
@@ -97,8 +89,6 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell!.textLabel?.text = items[indexPath.row]
         cell!.imageView?.image = UIImage(named: images[indexPath.row])
-        
-        print(cell!.textLabel?.text)
         
         return cell!
     }

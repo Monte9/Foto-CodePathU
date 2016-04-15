@@ -38,7 +38,6 @@ class Stream: NSObject {
                 print("Stream id: \(id)")
                 print("Stream created and saved to parse successfully")
             }
-            
         }
     }
     

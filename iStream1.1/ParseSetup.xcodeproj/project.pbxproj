@@ -13,6 +13,8 @@
 		7FF9AFF506847187F4BEFDFE /* Pods_ParseSetup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20169B466C4FED196A77E6 /* Pods_ParseSetup.framework */; };
 		FA483C601CC0714D00B28322 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA483C5F1CC0714D00B28322 /* RootViewController.swift */; };
 		FA483C621CC071D800B28322 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA483C611CC071D800B28322 /* LeftMenuViewController.swift */; };
+		FA483C671CC146E100B28322 /* AddStreamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA483C661CC146E100B28322 /* AddStreamsViewController.swift */; };
+		FA483C691CC14D3400B28322 /* AddStreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA483C681CC14D3400B28322 /* AddStreamCell.swift */; };
 		FAA178431C993D6B007DF276 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA178421C993D6B007DF276 /* PhotosViewController.swift */; };
 		FAA178451C993EF8007DF276 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA178441C993EF8007DF276 /* ImageCell.swift */; };
 		FAA178471C993FB3007DF276 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA178461C993FB3007DF276 /* Image.swift */; };
@@ -34,6 +36,8 @@
 		D3B44963CEF8BA18668303D3 /* Pods-ParseSetup.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParseSetup.release.xcconfig"; path = "Pods/Target Support Files/Pods-ParseSetup/Pods-ParseSetup.release.xcconfig"; sourceTree = "<group>"; };
 		FA483C5F1CC0714D00B28322 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		FA483C611CC071D800B28322 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		FA483C661CC146E100B28322 /* AddStreamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStreamsViewController.swift; sourceTree = "<group>"; };
+		FA483C681CC14D3400B28322 /* AddStreamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStreamCell.swift; sourceTree = "<group>"; };
 		FAA178421C993D6B007DF276 /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		FAA178441C993EF8007DF276 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		FAA178461C993FB3007DF276 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				FAE600601C950A8800EB3713 /* StreamCell.swift */,
+				FA483C681CC14D3400B28322 /* AddStreamCell.swift */,
 				FAA178441C993EF8007DF276 /* ImageCell.swift */,
 			);
 			name = Views;
@@ -89,8 +94,9 @@
 		FA483C641CC0A8D100B28322 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7B714E861CB0A178000AE54D /* CameraViewController.swift */,
 				FAE600501C94FDC200EB3713 /* ViewController.swift */,
+				7B714E861CB0A178000AE54D /* CameraViewController.swift */,
+				FA483C661CC146E100B28322 /* AddStreamsViewController.swift */,
 				FAA178421C993D6B007DF276 /* PhotosViewController.swift */,
 				36102D6F1CB0CF0C00CEF610 /* gifViewController.swift */,
 				FA483C5F1CC0714D00B28322 /* RootViewController.swift */,
@@ -266,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA178471C993FB3007DF276 /* Image.swift in Sources */,
+				FA483C691CC14D3400B28322 /* AddStreamCell.swift in Sources */,
 				FAE600511C94FDC200EB3713 /* ViewController.swift in Sources */,
 				FA483C621CC071D800B28322 /* LeftMenuViewController.swift in Sources */,
 				FAE600611C950A8800EB3713 /* StreamCell.swift in Sources */,
@@ -273,6 +280,7 @@
 				7B714E851CA8DF2A000AE54D /* XMCCamera.swift in Sources */,
 				FAE6004F1C94FDC200EB3713 /* AppDelegate.swift in Sources */,
 				FAE600631C950BFA00EB3713 /* Stream.swift in Sources */,
+				FA483C671CC146E100B28322 /* AddStreamsViewController.swift in Sources */,
 				FAA178431C993D6B007DF276 /* PhotosViewController.swift in Sources */,
 				36102D701CB0CF0C00CEF610 /* gifViewController.swift in Sources */,
 				FAA178451C993EF8007DF276 /* ImageCell.swift in Sources */,

@@ -37,9 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //User NSUserDefaults to check if it is a newUser
         let isNewUser = NSUserDefaults.standardUserDefaults().objectForKey("isNewUser")
         
-        print("New user? \(isNewUser)")
-        
         if (isNewUser == nil) {
+            print("New User")
             //Welcome screen setup- need to customize
             let firstPage = OnboardingContentViewController(title: "Take a picture", body: "Also lets you have a timer", image: nil, buttonText: "") {
             }

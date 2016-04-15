@@ -13,10 +13,10 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
     @IBOutlet weak var collectionView: UICollectionView!
     
     var images: [Image]? = []
-    
-    var sampleImage: [String]? = ["sf1", "sf2", "sf3","sf4", "sf5"]
-    var i = 0
-    
+//    
+//    var sampleImage: [String]? = ["sf1", "sf2", "sf3","sf4", "sf5"]
+//    var i = 0
+//    
     var streamId: String?
     
     override func viewDidLoad() {
@@ -50,17 +50,21 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
     }
     
     @IBAction func addNewImage(sender: AnyObject) {
-        print("Add new image clicked")
-        if (i > 4) {
-            i = i%4
-            let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
-            images?.insert(newImage, atIndex: 0)
-            i += 1
-        } else {
-            let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
-            images?.insert(newImage, atIndex: 0)
-            i += 1
-        }
+        print("Add new image clicked.. taking to camera view")
+        
+       // let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
+        //images?.insert(newImage, atIndex: 0)
+        
+//        if (i > 4) {
+//            i = i%4
+//            let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
+//            images?.insert(newImage, atIndex: 0)
+//            i += 1
+//        } else {
+//            let newImage = Image(image: UIImage(named: sampleImage![i])!, id: streamId)
+//            images?.insert(newImage, atIndex: 0)
+//            i += 1
+//        }
         collectionView.reloadData()
     }
     
@@ -94,14 +98,13 @@ class PhotosViewController: UIViewController,  UICollectionViewDelegate, UIColle
     
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue == "takePictureSegue") {
+            var cameraViewController = sender?.destinationViewController as! CameraViewController
+            cameraViewController.profileButton.hidden = true
+            cameraViewController.streams.hidden = true
+            print("Got Camera VC.. do something here")
+        }
     }
-    */
-
 }

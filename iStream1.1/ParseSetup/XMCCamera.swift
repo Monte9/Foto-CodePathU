@@ -49,7 +49,6 @@ class XMCCamera: NSObject {
             self.session.commitConfiguration()
             
             dispatch_async(dispatch_get_main_queue()) {
-                NSLog("Session initialization did complete")
                 self.delegate?.cameraSessionConfigurationDidComplete()
             }
         }
@@ -58,14 +57,12 @@ class XMCCamera: NSObject {
     func startCamera() {
         dispatch_async(self.sessionQueue) {
             self.session.startRunning()
-            print("onStart")
         }
     }
     
     func stopCamera() {
         dispatch_async(self.sessionQueue) {
             self.session.stopRunning()
-            print("onStop")
         }
     }
     
@@ -117,9 +114,7 @@ class XMCCamera: NSObject {
         let device: AVCaptureDevice?
         
         if frontCamera == false {
-            print("frontCamera:", frontCamera)
             device = self.deviceWithMediaTypeWithPosition(AVMediaTypeVideo, position: AVCaptureDevicePosition.Back)
-            print("here")
             do {
                 let input = try AVCaptureDeviceInput(device: device)
                 if self.session.canAddInput(input) {
@@ -128,7 +123,6 @@ class XMCCamera: NSObject {
             } catch {
                 print(error)
             }
-            print("here")
         }
         else if frontCamera == true {
             print("frontCamera:", frontCamera)
@@ -179,14 +173,12 @@ class XMCCamera: NSObject {
     
     func sessionDidStart(notification: NSNotification) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSLog("Session did start")
             self.delegate?.cameraSessionDidBegin()
         }
     }
     
     func sessionDidStop(notification: NSNotification) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSLog("Session did stop")
             self.delegate?.cameraSessionDidStop()
         }
     }
