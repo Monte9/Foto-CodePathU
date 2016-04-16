@@ -183,7 +183,7 @@
 				TargetAttributes = {
 					FAE6004A1C94FDC100EB3713 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = C3V4QQ3VFL;
+						DevelopmentTeam = TKR788KR73;
 					};
 				};
 			};
@@ -400,7 +400,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ParseSetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.monteThakkar.ParseSetup.a;
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteThakkar.ParseSetup.b;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -415,7 +415,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ParseSetup/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.monteThakkar.ParseSetup.a;
+				PRODUCT_BUNDLE_IDENTIFIER = com.monteThakkar.ParseSetup.b;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
