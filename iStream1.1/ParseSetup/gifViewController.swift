@@ -11,28 +11,39 @@ import UIKit
 class gifViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            // Do any additional setup after loading the view, typically from a nib.
-            
-            var imagesName = ["sf1", "sf2", "sf3","sf4", "sf5"]
-            
-            var images = [UIImage]()
-            
-            for i in 0..<imagesName.count{
-                images.append(UIImage(named: imagesName[i])!)
-            }
-            
-            imageView.animationImages = images
-            imageView.animationDuration = 6.0
-            imageView.startAnimating()
+    
+    @IBOutlet weak var dismissButton: UIButton!
+    
+    @IBOutlet weak var shareButton: UIButton!
+    
+    var myImages: [Image] = []
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        var images = [UIImage]()
+        
+        for i in 0..<myImages.count{
+            images.append(myImages[i].image!)
         }
+        
+        imageView.animationImages = images
+        imageView.animationDuration = 6.0
+        imageView.startAnimating()
+    }
+    
+    @IBAction func onShareButton(sender: AnyObject) {
+        print("Implement share feature")
+    }
+    
+    @IBAction func onDismissButton(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

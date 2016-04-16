@@ -24,7 +24,7 @@ class Image: NSObject {
         super.init()
         self.image = image
         self.date = getDate()
-        self.location = "San Francisco"
+        self.location = "Mars"
         self.streamId = id
         
         //Save images in a stream to Parse
@@ -44,7 +44,7 @@ class Image: NSObject {
             } else {
                 let id = storeImage.objectId
                 self.imageId = id
-                print("Image on stream created and saved to parse successfully")
+                print("Image added to stream and saved to parse successfully")
             }
         }
     }
@@ -83,7 +83,6 @@ class Image: NSObject {
                 
                 dispatch_group_notify(downloadGroup, dispatch_get_main_queue()) {
                     // This will be called when all your downloads are complete
-                    print("GO GO GO Grand Central Dispatch!!")
                     completionHandler(images: images, success: true, error: nil)
                 }
                 

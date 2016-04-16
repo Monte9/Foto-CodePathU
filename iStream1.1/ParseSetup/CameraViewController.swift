@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import ImageIO
+import RESideMenu
 
 var frontCamera:Bool=false
 
@@ -21,10 +22,12 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     @IBOutlet weak var RetakePhoto: UIButton!
     @IBOutlet weak var background: UIView!
     @IBOutlet weak var flipCamera: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
     
     @IBOutlet weak var streams: UIButton!
     @IBOutlet weak var photos: UIButton!
     
+    var imageTaken: UIImage!
     
     var preview: AVCaptureVideoPreviewLayer?
     var flippedImage: UIImage!
@@ -32,12 +35,15 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     let vc = UIImagePickerController()
 
     override func viewDidLoad() {
-        frontCamera = false
+
         super.viewDidLoad()
-        vc.delegate = self
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        vc.delegate = self
+        frontCamera = false
+        
+        //Make the status bar white color
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+
         usePhoto.hidden = true
         RetakePhoto.hidden = true
         self.initializeCamera()
@@ -46,10 +52,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     override func viewDidAppear(animated: Bool) {
         frontCamera = false
         vc.delegate = self
-        //usePhoto.hidden = true
-        //RetakePhoto.hidden = true
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        
         self.initializeCamera()
         super.viewDidAppear(animated)
         self.establishVideoPreviewArea()
@@ -59,6 +62,12 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func goToStreams(sender: AnyObject) {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("toStreams") as! UINavigationController
+        self.presentViewController(nextViewController, animated:false, completion:nil)
     }
     
     
@@ -102,8 +111,10 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         flipCamera.hidden=true
         photos.hidden=true
         streams.hidden=true
+        profileButton.hidden = true
         usePhoto.hidden = false
         RetakePhoto.hidden = false
+
         UIView.animateWithDuration(0.225, animations: { () -> Void in
             self.cameraPreview.alpha = 0.0;
         })
@@ -111,11 +122,13 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         self.camera?.captureStillImage({ (image) -> Void in
             if image != nil {
                 if frontCamera == true{
-                    var flippedImage: UIImage = UIImage(CGImage: image!.CGImage!, scale: image!.scale, orientation: .LeftMirrored)
+                    let flippedImage: UIImage = UIImage(CGImage: image!.CGImage!, scale: image!.scale, orientation: .LeftMirrored)
                     self.cameraStill.image = flippedImage;
+                    self.imageTaken = image;
                 }
                 else{
                     self.cameraStill.image = image;
+                    self.imageTaken = image;
                 }
                 UIView.animateWithDuration(0.225, animations: { () -> Void in
                     self.cameraStill.alpha = 1.0;
@@ -135,6 +148,8 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         photos.hidden=false
         streams.hidden=false
         flipCamera.hidden=false
+        
+        
         background.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
         
         UIView.animateWithDuration(0.225, animations: { () -> Void in
@@ -171,18 +186,10 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         }
     }
     
-    
-    @IBAction func goToStreams(sender: AnyObject) {
-        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("toStreams") as! UINavigationController
-        self.presentViewController(nextViewController, animated:false, completion:nil)
-    }
-    
     @IBAction func usePthoto(sender: AnyObject) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("toStreams") as! UINavigationController
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("AddToStreamNav") as! UINavigationController
         self.presentViewController(nextViewController, animated:false, completion:nil)
         
     }
@@ -202,6 +209,9 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
+    @IBAction func onProfileMenu(sender: AnyObject) {
+        self.presentLeftMenuViewController(self)
+    }
     
     func imagePickerController(
         picker: UIImagePickerController,
@@ -217,19 +227,13 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-/*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if segue.identifier == "cameraToStream" {
-            let viewController = segue.destinationViewController as! ViewController
+        if segue.identifier == "toAddStreamVC" {
+            let addStreamNavigationController = segue.destinationViewController as! UINavigationController
+            let addStreamViewController = addStreamNavigationController.topViewController as! AddStreamsViewController
+            addStreamViewController.imageToAdd = self.imageTaken
         }
-        
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

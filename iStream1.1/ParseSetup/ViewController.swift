@@ -18,6 +18,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Make the status bar white color
+        UIApplication.sharedApplication().statusBarStyle = .Default
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -25,7 +28,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             if error == nil {
                 self.streams = streams
                 self.tableView.reloadData()
-                print("Stream info found and loaded!")
             }
         })
     }
@@ -46,13 +48,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    @IBAction func addNewStream(sender: AnyObject) {
-        print("New stream add button clicked")
-        let newStream = Stream(name: "San Francisco")
-        streams?.append(newStream)
-        tableView.reloadData()
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "showImagesSegue" {
@@ -66,10 +61,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     @IBAction func backToCamera(sender: AnyObject) {
-        print("backToCamera")
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("camera") as! CameraViewController
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("rootViewController") as! RootViewController
         self.presentViewController(nextViewController, animated:false, completion:nil)
     }
     

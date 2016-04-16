@@ -22,7 +22,6 @@ class Stream: NSObject {
         super.init()
         self.name = name
         date = getDate()
-        print("Name and date of stream initialized.")
         
         //Save stream to Parse
         let stream = PFObject(className: "Stream")
@@ -35,10 +34,8 @@ class Stream: NSObject {
             } else {
                 let id = stream.objectId
                 self.id = id
-                print("Stream id: \(id)")
-                print("Stream created and saved to parse successfully")
+                print("Stream id: \(id) created and saved to parse successfully")
             }
-            
         }
     }
     
