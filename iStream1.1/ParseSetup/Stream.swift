@@ -14,6 +14,7 @@ class Stream: NSObject {
     var name: String?
     var date: String?
     var id: String?
+    var shouldAddImage: Bool?
     
     override init() {
     }
@@ -27,6 +28,7 @@ class Stream: NSObject {
         let stream = PFObject(className: "Stream")
         stream["name"] = name
         stream["date"] = date
+        stream["shouldAddImage"] = false
         
         stream.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
             if error != nil {
@@ -54,6 +56,7 @@ class Stream: NSObject {
                     stream.name = object["name"] as? String
                     stream.date = object["date"] as? String
                     stream.id = object.objectId
+                    stream.shouldAddImage = object["shouldAddImage"] as? Bool
                     streams?.append(stream)
                 }
                 completionHandler(streams: streams, success: true, error: nil)
