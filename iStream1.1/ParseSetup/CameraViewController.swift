@@ -220,6 +220,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         cameraStill.contentMode = .ScaleAspectFit
         self.cameraStill.alpha = 1.0
         cameraStill.image = chosenImage
+        imageTaken = chosenImage
         dismissViewControllerAnimated(true, completion: nil)
     }
     
