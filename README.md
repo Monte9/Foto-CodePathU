@@ -60,8 +60,6 @@ Team members:
 
 2. Veronika Kotckovich
 
-3. Jasimine Iris
-
 Every great app starts with a concept. The best way to arrive at that concept is to consider the problem you want your app to solve. Great apps solve a single, well-defined problem. For example, the Settings app allows users to adjust all of the settings on their device. It provides a single interface for users to accomplish a related set of tasks.
 An app concept doesn’t have to be completely polished or finished when you start developing your app. Still, it helps to have an idea of where you’re going and what you need to do to get there.
 
