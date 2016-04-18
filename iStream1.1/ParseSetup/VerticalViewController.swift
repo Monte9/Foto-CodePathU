@@ -38,7 +38,7 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
                     self.imagesForSection0.append(images![i].image!)
                 }
                 for (var j = 1; j < images?.count; j += 1) {
-                    self.imagesForSection1.append(images![i].image!)
+                    self.imagesForSection1.append(images![j].image!)
                 }
                 
             }
