@@ -1,40 +1,20 @@
 
-# CodePath Univ. Final project - *Vemoja App*
+# CodePath Univ. Final project - *iStream App*
 
-**Vemoja App** is a social app that lets you share your day through *streams* of pictures that are timestamped throughout the day/event. 
-
-Time spent: **20** hours spent in total
+**iStream** is an iOS App that lets users share their day through adding pictures to various streams. Streams can be converted into gifs and shared on Twitter, Facebook and other social networks. 
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [x] User can create a new live stream
-- [x] User can add pictures to an existing live stream
-- [ ] User can end a live stream to create a gif of the stream
-- [x] 3 base view controllers setup
-- [x] Custom UI with app logo added
-
-The following **optional** features are implemented:
-
-- [ ] User must be able to view public streams based on location/ friends
-- [ ] User must be able to edit user profile
-- [ ] Super-custom UI that looks rad!
-
-## Project Guidelines
-
-**Requirements** of the project:
-
-- [ ] Must have at least three separate screens supporting user interaction
-- [ ] Must be data-driven with dynamic information or media being displayed
-- [ ] Must use a RESTful API to source the data that is populated into the application
-- [ ] Must use local persistence either through files, preferences or SQLite
-
-In addition to these, a few other guidelines to consider given the course material:
-
-- [ ] Projects should not require complex animation or drawing (i.e games or visualizations)
-- [ ] Projects should not try to do too much given that the project should be able to be developed in just a few weeks.
-- [ ] Product Evaluation Criteria
+- [ ] User can create a new stream with custom title
+- [x] User can add pictures to an exiting/ new stream
+- [x] User can choose pictures from photo library
+- [x] User can take a picture from their phone camera
+- [ ] User can create a gif of the stream
+- [ ] User can share the gif on Twitter and Facebook
+- [ ] User can share the link of the gif through text message (through imgur)
+- [x] Super custom UI that looks rad af
 
 ## Video Walkthrough 
 
@@ -42,45 +22,25 @@ Here's a walkthrough of implemented user stories:
 
 ![iStream App Walkthrough](demo.gif)
 
-## Demo Day
+## Team members:
 
-Each team will showcase the project they have built and give a tour to the class in a brief 5-7 min presentation to review the work we have done over the course of the class. On Demo Day, each team will present quickly on various aspects of their projects and introduce the class to what what they were able to build over the six weeks. The presentation should include:
+1. Jasmine Farrell
 
-Title and Tagline (What is your product called?)
-Introduce the Team (Who built this product?)
-Inspiration (Why build this project?)
-Live Demo (Show the project to the class)
-Technical Challenges (What interesting technical challenges did you solve?)
+2. Monte Thakkar
 
-## Notes
-
-Team members:
-
-1. Monte Thakkar
-
-2. Veronika Kotckovich
-
-Every great app starts with a concept. The best way to arrive at that concept is to consider the problem you want your app to solve. Great apps solve a single, well-defined problem. For example, the Settings app allows users to adjust all of the settings on their device. It provides a single interface for users to accomplish a related set of tasks.
-An app concept doesn’t have to be completely polished or finished when you start developing your app. Still, it helps to have an idea of where you’re going and what you need to do to get there.
-
-Here are some key questions to consider when arriving at a concept:
-
-Who is your audience? 
-Your app content and experience will differ depending on whether you’re writing a children’s game, a to-do list app, or even a test app for your own learning.
-
-What is the purpose of your app? 
-It’s important for an app to have a clearly defined purpose. Part of defining the purpose is understanding what one thing will motivate users to use your app.
-
-What problem is your app trying to solve? 
-An app should solve a single problem well instead of trying to offer solutions to multiple distinct problems. If you find that your app is trying to solve unrelated problems, you might consider writing multiple apps.
-
-What content will your app incorporate? 
-Consider what type of content your app will present to users and how they’ll interact with it. Design the user interface to complement the type of content that’s presented in the app.
-
+3. Veronika Kotckovich
 
 ## 3rd party libraries-
 
-1. [Onboard](https://github.com/mamaral/Onboard) - An iOS framework to easily create a beautiful and engaging onboarding experience with only a few lines of code.
+1. [Parse](https://github.com/ParsePlatform/parse-server) - Parse Server is an open source version of the Parse backend that is deployed on Heroku and mLab
+
+2. [Onboard](https://github.com/mamaral/Onboard) - An iOS framework to easily create a beautiful and engaging onboarding experience with only a few lines of code
+
+3. [RESideMenu](https://github.com/romaonthego/RESideMenu) - iOS 7/8 style side menu with parallax effect inspired by Dribbble shots
+
+4. [RAReorderableLayout](https://github.com/ra1028/RAReorderableLayout) - A UICollectionView layout which you can move items with drag and drop
+
+5. [UIColor-Hex-Swift](https://github.com/yeahdongcn/UIColor-Hex-Swift) - Convenience method for creating autoreleased color using RGBA hex string
 
 ## License
 
