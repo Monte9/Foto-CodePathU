@@ -51,7 +51,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "showImagesSegue" {
-            let photosViewController = segue.destinationViewController as! PhotosViewController
+            let photosViewController = segue.destinationViewController as! VerticalViewController
+            print("So atleast here right? :)")
             let streamCell = sender as! StreamCell
             let indexPath = tableView.indexPathForCell(streamCell)
             let newStream = streams![indexPath!.row]

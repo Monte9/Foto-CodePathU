@@ -56,7 +56,6 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         self.initializeCamera()
         super.viewDidAppear(animated)
         self.establishVideoPreviewArea()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -221,11 +220,13 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         cameraStill.contentMode = .ScaleAspectFit
         self.cameraStill.alpha = 1.0
         cameraStill.image = chosenImage
+        imageTaken = chosenImage
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         dismissViewControllerAnimated(true, completion: nil)
+        onRetake(self)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
