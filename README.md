@@ -56,9 +56,11 @@ Technical Challenges (What interesting technical challenges did you solve?)
 
 Team members:
 
-1. Monte Thakkar
+1. Jasmine Farrell
 
-2. Veronika Kotckovich
+2. Monte Thakkar
+
+3. Veronika Kotckovich
 
 Every great app starts with a concept. The best way to arrive at that concept is to consider the problem you want your app to solve. Great apps solve a single, well-defined problem. For example, the Settings app allows users to adjust all of the settings on their device. It provides a single interface for users to accomplish a related set of tasks.
 An app concept doesn’t have to be completely polished or finished when you start developing your app. Still, it helps to have an idea of where you’re going and what you need to do to get there.
@@ -76,7 +78,6 @@ An app should solve a single problem well instead of trying to offer solutions t
 
 What content will your app incorporate? 
 Consider what type of content your app will present to users and how they’ll interact with it. Design the user interface to complement the type of content that’s presented in the app.
-
 
 ## 3rd party libraries-
 
