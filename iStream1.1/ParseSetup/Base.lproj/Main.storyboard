@@ -471,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3g-EP-JGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1609" y="1009"/>
+            <point key="canvasLocation" x="1527" y="1003"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MbW-yl-Ssj">
@@ -544,7 +544,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL4-Y1-tjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1077" y="1009"/>
+            <point key="canvasLocation" x="995" y="1003"/>
         </scene>
         <!--Vertical View Controller-->
         <scene sceneID="jSK-HL-PPn">
@@ -637,7 +637,7 @@
                     <navigationItem key="navigationItem" id="goH-VV-USg">
                         <barButtonItem key="rightBarButtonItem" title="Create Gif" id="8p5-QG-dTr">
                             <connections>
-                                <segue destination="D2K-OI-PzA" kind="modal" id="jH4-ES-jFy"/>
+                                <segue destination="D2K-OI-PzA" kind="modal" id="0Jx-Hz-pnl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

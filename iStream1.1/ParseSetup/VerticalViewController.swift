@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource {
 
@@ -140,6 +141,38 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     func scrollTrigerPaddingInCollectionView(collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
     }
+        
+//        var movieMaker: CEMovieMaker
+//        
+//        var frames: [AnyObject] = [AnyObject]()
+//        var settings: [NSObject : AnyObject] = CEMovieMaker.videoSettingsWithCodec(".H264", withWidth: self.view.bounds.width, andHeight: self.view.bounds.height)
+//        
+//        movieMaker = CEMovieMaker(settings: settings)
+//        print("got all images \(images?.count)")
+//        for (var i = 0; i < images?.count; i += 1) {
+//            frames.append((images?[i].image)!)
+//            print("append \(i)")
+//        }
+//        print("compiled all images")
+//        
+//        movieMaker.createMovieFromImages(frames as! [UIImage]) { (fileURL: NSURL!) in
+//            print("Got the file URL as: \(fileURL)")
+//            self.viewMovieAtUrl(fileURL)
+//        }
+    
+//    func viewMovieAtUrl(fileURL: NSURL) {
+//        
+//        print("Creating the movie soon..")
+//        var playerController = MPMoviePlayerViewController(contentURL: fileURL)
+//        playerController.view!.frame = self.view.bounds
+//        self.presentMoviePlayerViewControllerAnimated(playerController)
+//        playerController.moviePlayer.prepareToPlay()
+//        playerController.moviePlayer.play()
+//        self.collectionView!.addSubview(playerController.view!)
+//        print("added subview.. show movie now")
+//        
+//    }
+//    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let gifNavController = segue.destinationViewController as! UINavigationController

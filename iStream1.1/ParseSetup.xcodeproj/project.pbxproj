@@ -185,7 +185,7 @@
 		FAE600431C94FDC100EB3713 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = MonteThakkar;
 				TargetAttributes = {
@@ -404,6 +404,7 @@
 			baseConfigurationReference = 2D5C74FFCCEC2CBC7C03F000 /* Pods-ParseSetup.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ParseSetup/Info.plist;
@@ -411,6 +412,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.monteThakkar.ParseSetup.c;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -419,6 +422,7 @@
 			baseConfigurationReference = D3B44963CEF8BA18668303D3 /* Pods-ParseSetup.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ParseSetup/Info.plist;
@@ -426,6 +430,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.monteThakkar.ParseSetup.c;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
