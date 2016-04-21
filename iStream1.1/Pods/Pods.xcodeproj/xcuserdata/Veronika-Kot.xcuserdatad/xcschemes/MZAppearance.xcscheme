@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EE9998B1EFF4A28E12B4046F'
-               BlueprintName = 'Onboard'
+               BlueprintIdentifier = '745F3B45939B04EF13FE1856'
+               BlueprintName = 'MZAppearance'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Onboard.framework'>
+               BuildableName = 'MZAppearance.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

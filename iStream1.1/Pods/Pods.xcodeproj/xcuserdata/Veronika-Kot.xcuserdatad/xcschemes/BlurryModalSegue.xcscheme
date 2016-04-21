@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'EE9998B1EFF4A28E12B4046F'
-               BlueprintName = 'Onboard'
+               BlueprintIdentifier = '458910FFD6AD3CFCA3E2BFA7'
+               BlueprintName = 'BlurryModalSegue'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Onboard.framework'>
+               BuildableName = 'BlurryModalSegue.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

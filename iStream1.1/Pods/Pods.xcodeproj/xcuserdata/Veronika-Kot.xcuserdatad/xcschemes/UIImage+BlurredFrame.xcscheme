@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '703A2C82EE8426D15EBEF381'
-               BlueprintName = 'RAReorderableLayout'
+               BlueprintIdentifier = 'D71C9D7761198BCD09267F2A'
+               BlueprintName = 'UIImage+BlurredFrame'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RAReorderableLayout.framework'>
+               BuildableName = 'UIImage_BlurredFrame.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
