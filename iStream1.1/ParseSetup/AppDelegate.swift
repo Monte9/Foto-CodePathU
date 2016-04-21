@@ -8,7 +8,8 @@
 
 import UIKit
 import Parse
-import Onboard //https://github.com/mamaral/Onboard
+import Onboard
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

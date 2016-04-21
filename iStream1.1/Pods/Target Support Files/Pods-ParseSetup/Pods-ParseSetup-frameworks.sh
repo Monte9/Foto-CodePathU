@@ -84,16 +84,22 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-ParseSetup/BlurryModalSegue.framework"
   install_framework "Pods-ParseSetup/Bolts.framework"
+  install_framework "Pods-ParseSetup/MZAppearance.framework"
   install_framework "Pods-ParseSetup/Onboard.framework"
   install_framework "Pods-ParseSetup/Parse.framework"
   install_framework "Pods-ParseSetup/RESideMenu.framework"
   install_framework "Pods-ParseSetup/UIColor_Hex_Swift.framework"
+  install_framework "Pods-ParseSetup/UIImage_BlurredFrame.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-ParseSetup/BlurryModalSegue.framework"
   install_framework "Pods-ParseSetup/Bolts.framework"
+  install_framework "Pods-ParseSetup/MZAppearance.framework"
   install_framework "Pods-ParseSetup/Onboard.framework"
   install_framework "Pods-ParseSetup/Parse.framework"
   install_framework "Pods-ParseSetup/RESideMenu.framework"
   install_framework "Pods-ParseSetup/UIColor_Hex_Swift.framework"
+  install_framework "Pods-ParseSetup/UIImage_BlurredFrame.framework"
 fi

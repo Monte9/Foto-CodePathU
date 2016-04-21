@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource {
 
@@ -140,7 +141,7 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     func scrollTrigerPaddingInCollectionView(collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
     }
-    
+        
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let gifNavController = segue.destinationViewController as! UINavigationController
         let giffyViewController = gifNavController.topViewController as! gifViewController
