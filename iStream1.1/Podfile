@@ -13,5 +13,7 @@ pod 'RESideMenu', '~> 4.0.7'
 
 pod 'UIColor_Hex_Swift', '~> 2.1'
 
+pod 'BlurryModalSegue'
+
 end
 

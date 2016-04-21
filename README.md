@@ -1,19 +1,18 @@
 
 # CodePath Univ. Final project - *iStream App*
 
-**iStream** is an iOS App that lets users share their day through adding pictures to various streams. Streams can be converted into gifs and shared on Twitter, Facebook and other social networks. 
+**iStream** is an iOS App that lets users share their day through adding pictures to various streams. Streams can be converted into videos and shared on Twitter, Facebook and other social networks. 
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [ ] User can create a new stream with custom title
+- [x] User can create a new stream with custom title
 - [x] User can add pictures to an exiting/ new stream
 - [x] User can choose pictures from photo library
 - [x] User can take a picture from their phone camera
-- [ ] User can create a gif of the stream
-- [ ] User can share the gif on Twitter and Facebook
-- [ ] User can share the link of the gif through text message (through imgur)
+- [x] User can create a video of the stream
+- [ ] User can share the video on Twitter and Facebook
 - [x] Super custom UI that looks rad af
 
 ## Video Walkthrough 
@@ -41,6 +40,8 @@ Here's a walkthrough of implemented user stories:
 4. [RAReorderableLayout](https://github.com/ra1028/RAReorderableLayout) - A UICollectionView layout which you can move items with drag and drop
 
 5. [UIColor-Hex-Swift](https://github.com/yeahdongcn/UIColor-Hex-Swift) - Convenience method for creating autoreleased color using RGBA hex string
+
+6. [BlurryModalSegue](https://github.com/Citrrus/BlurryModalSegue) - A custom modal segue for providing a blurred overlay effect
 
 ## License
 
