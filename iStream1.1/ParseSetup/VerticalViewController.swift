@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MediaPlayer
 
 class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource {
 
@@ -17,16 +18,15 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     
     var streamId: String?
     var images: [Image]?
+    var streamName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "RAReorderableLayout"
+        self.title = streamName
         let nib = UINib(nibName: "verticalCell", bundle: nil)
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        print(streamId)
         
         Image.getImagesInStream(streamId) { (images, success, error) -> () in
             if error == nil {
@@ -34,13 +34,18 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
                 self.collectionView.reloadData()
 
                 var i = 0;
-                for (i = 0; i < 1; i += 1) {
-                    self.imagesForSection0.append(images![i].image!)
+                if (!(images!.isEmpty)) {
+                    for (i = 0; i < 1; i += 1) {
+                        self.imagesForSection0.append(images![i].image!)
+                    }
+                    for (var j = 1; j < images?.count; j += 1) {
+                        self.imagesForSection1.append(images![j].image!)
+                    }
+                } else {
+                    print("No images.. initialized to empty array")
+                    self.imagesForSection0 = []
+                    self.imagesForSection1 = []
                 }
-                for (var j = 1; j < images?.count; j += 1) {
-                    self.imagesForSection1.append(images![j].image!)
-                }
-                
             }
         }
     }
@@ -107,7 +112,6 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     
     func collectionView(collectionView: UICollectionView, atIndexPath: NSIndexPath, didMoveToIndexPath toIndexPath: NSIndexPath) {
         var photo: UIImage
-        var photoNew: UIImage
         
         if atIndexPath.section == 0 {
             photo = imagesForSection0.removeAtIndex(atIndexPath.item)
@@ -116,9 +120,7 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
         }
         
         if toIndexPath.section == 0 {
-//            photoNew = imagesForSection0.removeAtIndex(0)
-//            imagesForSection1.insert(photoNew, atIndex: 0)
-            imagesForSection0.insert(photo, atIndex: 0)
+            imagesForSection0.insert(photo, atIndex: toIndexPath.item)
         }else {
             imagesForSection1.insert(photo, atIndex: toIndexPath.item)
         }
@@ -138,6 +140,12 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     
     func scrollTrigerPaddingInCollectionView(collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
+    }
+        
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let gifNavController = segue.destinationViewController as! UINavigationController
+        let giffyViewController = gifNavController.topViewController as! gifViewController
+        giffyViewController.myImages = self.images!
     }
 }
 

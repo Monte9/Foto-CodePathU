@@ -52,11 +52,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         if segue.identifier == "showImagesSegue" {
             let photosViewController = segue.destinationViewController as! VerticalViewController
-            print("So atleast here right? :)")
             let streamCell = sender as! StreamCell
             let indexPath = tableView.indexPathForCell(streamCell)
             let newStream = streams![indexPath!.row]
             photosViewController.streamId = newStream.id
+            photosViewController.streamName = newStream.name
         }
         
     }
