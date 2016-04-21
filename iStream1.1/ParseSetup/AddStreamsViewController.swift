@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddStreamCellDelegate {
+class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddStreamCellDelegate, CreateNewStreamControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -55,12 +55,11 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    @IBAction func addNewStream(sender: AnyObject) {
-        print("New stream add button clicked")
-        let newStream = Stream(name: names[namesIndex])
-        namesIndex += 1
+    func sendValue(value: NSString) {
+        let newStream = Stream(name: value as String)
         allStreams?.append(newStream)
         tableView.reloadData()
+        print("New stream created with name: \(value)")
     }
     
     @IBAction func onCancelButton(sender: AnyObject) {
@@ -103,14 +102,11 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?){
+        if let destinationViewController = segue.destinationViewController as? CreateNewStreamController {
+            destinationViewController.delegate = self
+        }
     }
-    */
 
 }

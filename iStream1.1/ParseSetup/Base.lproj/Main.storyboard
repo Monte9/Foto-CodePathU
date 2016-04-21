@@ -281,6 +281,7 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="done" translatesAutoresizingMaskIntoConstraints="NO" id="KHH-7M-Hi0">
                                         <rect key="frame" x="272" y="14" width="40" height="41"/>
+                                        <color key="tintColor" red="0.96470588239999999" green="0.1764705882" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="bUW-dA-zI7"/>
                                             <constraint firstAttribute="height" constant="41" id="sGJ-du-X64"/>
@@ -293,7 +294,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.45618665540540543" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstItem="KHH-7M-Hi0" firstAttribute="centerY" secondItem="5ix-Xq-vzO" secondAttribute="centerY" id="FRt-jU-eke"/>
@@ -308,7 +309,7 @@
                                 </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="5ix-Xq-vzO" secondAttribute="trailing" id="3MJ-zc-7wn"/>
                             <constraint firstAttribute="trailing" secondItem="a6c-ez-5vd" secondAttribute="trailing" id="3fd-pO-ygL"/>
@@ -327,7 +328,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ioY-1F-ygG">
                             <connections>
-                                <action selector="addNewStream:" destination="GiC-oY-iqk" id="88y-ck-1SN"/>
+                                <segue destination="8ep-tF-28V" kind="custom" customClass="BlurryModalSegue" id="7xC-tg-Ida"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -343,6 +344,77 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1358" y="327"/>
+        </scene>
+        <!--Create New Stream Controller-->
+        <scene sceneID="b9K-Hp-eVt">
+            <objects>
+                <viewController id="8ep-tF-28V" customClass="CreateNewStreamController" customModule="ParseSetup" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iOJ-f1-IbQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="rdM-13-2Hd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hVS-re-OKE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name your stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCB-qi-OCR">
+                                <rect key="frame" x="52" y="206" width="216" height="37"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="26"/>
+                                <color key="textColor" red="0.96470588239999999" green="0.1764705882" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cZ-Mwh">
+                                <rect key="frame" x="20" y="269" width="280" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynJ-f1-iNP">
+                                <rect key="frame" x="67" y="323" width="187" height="50"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.1764705882" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="LaoSangamMN" family="Lao Sangam MN" pointSize="29"/>
+                                <state key="normal" title="Create Stream">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCreateStream:" destination="8ep-tF-28V" eventType="touchUpInside" id="fGm-0J-T09"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1g-0X-phJ">
+                                <rect key="frame" x="250" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.96470588239999999" green="0.1764705882" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="F50-0f-dol"/>
+                                    <constraint firstAttribute="width" constant="50" id="LVB-Uc-5rj"/>
+                                </constraints>
+                                <state key="normal" image="cancel">
+                                    <color key="titleColor" red="0.96470588239999999" green="0.1764705882" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissViewController:" destination="8ep-tF-28V" eventType="touchUpInside" id="R6X-JS-9EY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="YhG-cZ-Mwh" secondAttribute="trailing" constant="20" id="6FL-PM-meG"/>
+                            <constraint firstItem="YhG-cZ-Mwh" firstAttribute="leading" secondItem="hVS-re-OKE" secondAttribute="leading" constant="20" id="DR0-gB-ZcY"/>
+                            <constraint firstItem="YhG-cZ-Mwh" firstAttribute="centerX" secondItem="hVS-re-OKE" secondAttribute="centerX" id="IBV-v9-vGI"/>
+                            <constraint firstItem="aCB-qi-OCR" firstAttribute="centerX" secondItem="hVS-re-OKE" secondAttribute="centerX" id="Otw-Z9-gVp"/>
+                            <constraint firstItem="ynJ-f1-iNP" firstAttribute="top" secondItem="YhG-cZ-Mwh" secondAttribute="bottom" constant="24" id="QKv-Kn-5gA"/>
+                            <constraint firstItem="s1g-0X-phJ" firstAttribute="top" secondItem="iOJ-f1-IbQ" secondAttribute="bottom" id="gA2-J2-hag"/>
+                            <constraint firstAttribute="trailing" secondItem="s1g-0X-phJ" secondAttribute="trailing" constant="20" id="mll-Yi-lxq"/>
+                            <constraint firstItem="YhG-cZ-Mwh" firstAttribute="centerY" secondItem="hVS-re-OKE" secondAttribute="centerY" id="o0z-1R-Xgd"/>
+                            <constraint firstItem="ynJ-f1-iNP" firstAttribute="centerX" secondItem="hVS-re-OKE" secondAttribute="centerX" id="ojj-G7-xIC"/>
+                            <constraint firstItem="YhG-cZ-Mwh" firstAttribute="top" secondItem="aCB-qi-OCR" secondAttribute="bottom" constant="26" id="pAh-jD-S3M"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="streamName" destination="YhG-cZ-Mwh" id="zy4-Yn-4ws"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JtB-KZ-1t6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1764" y="327"/>
         </scene>
         <!--iStreams-->
         <scene sceneID="tne-QT-ifu">
@@ -429,7 +501,7 @@
             </objects>
             <point key="canvasLocation" x="185" y="1009"/>
         </scene>
-        <!--iStream Gif-->
+        <!--iStream Movie-->
         <scene sceneID="oS3-bm-rsi">
             <objects>
                 <viewController id="HEl-US-GiB" customClass="gifViewController" customModule="ParseSetup" customModuleProvider="target" sceneMemberID="viewController">
@@ -453,7 +525,7 @@
                             <constraint firstAttribute="trailing" secondItem="ut6-MB-yX9" secondAttribute="trailing" id="xDm-bM-2Hx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iStream Gif" id="CHL-hg-dQx">
+                    <navigationItem key="navigationItem" title="iStream Movie" id="CHL-hg-dQx">
                         <barButtonItem key="leftBarButtonItem" title="Dismiss" id="OMO-wN-0BT">
                             <connections>
                                 <action selector="onDismissButton:" destination="HEl-US-GiB" id="TYy-w7-nPj"/>
@@ -544,7 +616,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL4-Y1-tjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="995" y="1003"/>
+            <point key="canvasLocation" x="995" y="1009"/>
         </scene>
         <!--Vertical View Controller-->
         <scene sceneID="jSK-HL-PPn">
@@ -635,9 +707,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="goH-VV-USg">
-                        <barButtonItem key="rightBarButtonItem" title="Create Gif" id="8p5-QG-dTr">
+                        <barButtonItem key="rightBarButtonItem" title="Create Movie" id="8p5-QG-dTr">
                             <connections>
-                                <segue destination="D2K-OI-PzA" kind="modal" id="0Jx-Hz-pnl"/>
+                                <segue destination="D2K-OI-PzA" kind="custom" customClass="BlurryModalSegue" id="ZRf-6B-nfu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

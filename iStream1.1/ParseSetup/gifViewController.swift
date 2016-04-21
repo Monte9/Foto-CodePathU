@@ -280,13 +280,19 @@ class gifViewController: UIViewController {
             yoImages = myImages!
             print("Array copied")
         }
-        
-        print("here?")
 
         let settings = RenderSettings()
         let imageAnimator = ImageAnimator(renderSettings: settings)
         imageAnimator.render() {
-            print("yes")
+            print("Video created!")
+            let alertController = UIAlertController(title: "Default Style", message: "A standard alert.", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                print("Alert created")
+            }
+            alertController.addAction(OKAction)
+            
+            self.presentViewController(alertController, animated: true) {
+            }
         }
     }
     
