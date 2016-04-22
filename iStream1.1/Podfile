@@ -19,5 +19,7 @@ pod 'MGSwipeTableCell'
 
 pod 'VideoSplashKit'
 
+pod 'NVActivityIndicatorView'
+
 end
 

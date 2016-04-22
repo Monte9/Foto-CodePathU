@@ -186,6 +186,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     }
     
     @IBAction func usePthoto(sender: AnyObject) {
+        background.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(1)
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
         let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("AddToStreamNav") as! UINavigationController

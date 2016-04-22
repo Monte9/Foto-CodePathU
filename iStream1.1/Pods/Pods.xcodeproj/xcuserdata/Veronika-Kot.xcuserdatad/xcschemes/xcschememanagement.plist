@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>NVActivityIndicatorView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Onboard.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7BB1A9890320F7B37393B73035621E9D</key>
+		<key>5F3F1C43980677102BE37B04C07DCB52</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9409EE15A26260A97F48AC515CE8A78C</key>
+		<key>626D49AD18621B0A3059EE726B27AE89</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BB1A9890320F7B37393B73035621E9D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>ACBF843172D5601745F40DDF393EF8AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B0214E86E9E229E292863BC821997C4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8CC894CD1C613E36A0B69089BAF828B</key>
+		<key>BC668350AA70CAC2BA692C6C98E8E17A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,17 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CCD8F445B09BD99C0C5D3F1D69A93047</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECD2C38A0DE5FE4BDEDD6F6F25054D4D</key>
+		<key>F699FEDAA038466F73EF4854183C0F22</key>
 		<dict>
 			<key>primary</key>
 			<true/>

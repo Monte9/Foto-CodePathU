@@ -8,10 +8,12 @@
 
 import UIKit
 import MediaPlayer
+import NVActivityIndicatorView
 
 class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var loadingView: NVActivityIndicatorView!
     
     var imagesForSection0: [UIImage] = []
     var imagesForSection1: [UIImage] = []
@@ -22,6 +24,22 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.collectionView.alpha = 0.0
+        let viewW=self.view.frame.width/2
+        let viewH=self.view.frame.width/2
+        let xV=self.view.frame.width/2-self.view.frame.width/4
+        let yV=self.view.frame.height/2-self.view.frame.width/4
+        
+        let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
+        loadingView = NVActivityIndicatorView(frame: frame)
+        loadingView.type = .BallScaleRippleMultiple
+        loadingView.color = UIColor.redColor()
+        loadingView.padding = 20
+        
+        loadingView.startAnimation()
+        self.view.addSubview(loadingView)
+        
+        
         self.title = streamName
         let nib = UINib(nibName: "verticalCell", bundle: nil)
         collectionView.registerNib(nib, forCellWithReuseIdentifier: "cell")
@@ -50,6 +68,19 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
         }
     }
     
+    func stopLoading(){
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.loadingView.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.collectionView.alpha = 1.0
+                    }, completion: nil)
+        })
+    }
+
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, 0, 0)
@@ -58,6 +89,7 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     // RAReorderableLayout delegate datasource
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        stopLoading()
         let screenWidth = CGRectGetWidth(UIScreen.mainScreen().bounds)
         let onePiecesWidth = floor(screenWidth)
         let twoPiecesWidth = floor(screenWidth / 2.0 - (2.0 / 2))

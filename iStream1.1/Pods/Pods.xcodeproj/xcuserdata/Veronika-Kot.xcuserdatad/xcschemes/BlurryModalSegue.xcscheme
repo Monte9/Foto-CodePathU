@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '458910FFD6AD3CFCA3E2BFA7'
+               BlueprintIdentifier = '071840C56704D4FFB6B47B54'
                BlueprintName = 'BlurryModalSegue'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'BlurryModalSegue.framework'>

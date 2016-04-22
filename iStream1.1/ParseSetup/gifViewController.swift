@@ -279,6 +279,16 @@ class gifViewController: UIViewController {
         if (myImages != nil) {
             yoImages = myImages!
             print("Array copied")
+            
+            var images = [UIImage]()
+            
+            for i in 0..<myImages!.count{
+                images.append(myImages![i].image!)
+            }
+            
+            imageView.animationImages = images
+            imageView.animationDuration = 6.0
+            imageView.startAnimating()
         }
 
         let settings = RenderSettings()
@@ -295,6 +305,12 @@ class gifViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    
+    
     
     @IBAction func onShareButton(sender: AnyObject) {
         print("Implement share feature")

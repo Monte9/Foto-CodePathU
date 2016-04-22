@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import MGSwipeTableCell
 
-class StreamCell: UITableViewCell {
+class StreamCell: MGSwipeTableCell {
 
     @IBOutlet weak var streamNameLabel: UILabel!
     

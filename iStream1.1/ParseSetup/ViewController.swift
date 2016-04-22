@@ -8,16 +8,36 @@
 
 import UIKit
 import Parse
+import MGSwipeTableCell
+import NVActivityIndicatorView
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
-    
     var streams: [Stream]? = []
+    
+
+    
+    var loadingView: NVActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.alpha = 0.0
+            let viewW=self.view.frame.width/2
+            let viewH=self.view.frame.width/2
+            let xV=self.view.frame.width/2-self.view.frame.width/4
+            let yV=self.view.frame.height/2-self.view.frame.width/4
         
+            let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
+            loadingView = NVActivityIndicatorView(frame: frame)
+            loadingView.type = .BallScaleRippleMultiple
+            loadingView.color = UIColor.redColor()
+            loadingView.padding = 20
+        
+            loadingView.startAnimation()
+            self.view.addSubview(loadingView)
+    
+       //=========
         //Make the status bar white color
         UIApplication.sharedApplication().statusBarStyle = .Default
         
@@ -30,6 +50,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.tableView.reloadData()
             }
         })
+        print("I am here")
+        //loadingView.stopAnimation()
+    }
+    
+    func stopLoading(){
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.loadingView.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.tableView.alpha = 1.0
+                    }, completion: nil)
+        })
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,9 +75,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if (streams != nil) {
             cell.stream = streams![indexPath.row]
+            stopLoading()
         }
        
         cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
+        //configure left buttons
+        cell.leftButtons = [MGSwipeButton(title: "", icon: UIImage(named:"cancel.png"), backgroundColor: UIColor.greenColor())]
+           // ,MGSwipeButton(title: "", icon: UIImage(named:"checked.png"), backgroundColor: UIColor.blueColor())]
+        cell.leftSwipeSettings.transition = MGSwipeTransition.Rotate3D
+        
+        //configure right buttons
+        cell.rightButtons = [MGSwipeButton(title: "Delete", backgroundColor: UIColor.redColor())]
+            //,MGSwipeButton(title: "More",backgroundColor: UIColor.lightGrayColor())]
+        cell.rightSwipeSettings.transition = MGSwipeTransition.Rotate3D
         
         return cell
     }

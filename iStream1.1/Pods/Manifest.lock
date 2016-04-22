@@ -5,6 +5,7 @@ PODS:
   - Bolts/Tasks (1.6.0)
   - MGSwipeTableCell (1.5.5)
   - MZAppearance (1.1.6)
+  - NVActivityIndicatorView (2.5)
   - Onboard (2.1.9)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
@@ -16,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - BlurryModalSegue
   - MGSwipeTableCell
+  - NVActivityIndicatorView
   - Onboard
   - Parse
   - RESideMenu (~> 4.0.7)
@@ -27,6 +29,7 @@ SPEC CHECKSUMS:
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  NVActivityIndicatorView: 18e82784c9cb2d5f3df3129a3e4754eb075ebca0
   Onboard: 4d92c763ed15f939071dec12e87ed9e8dc036746
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
