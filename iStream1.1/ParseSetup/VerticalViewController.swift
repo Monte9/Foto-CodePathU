@@ -140,7 +140,6 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
             cell.imageView.image = imagesForSection1[indexPath.item]
         }
 
-        // print("\(cell.imageView.image)")
         var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageTapped:")
         
         // Optionally set the number of required taps, e.g., 2 for a double click
@@ -154,17 +153,18 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     }
     
     @IBAction func imageTapped(sender: UITapGestureRecognizer) {
-        print("WOop woOp~")
         let imageView = sender.view as! UIImageView
-        print("What are you Mr? \(imageView.image)")
         let newImageView = UIImageView(image: imageView.image)
-        print(newImageView.image)
-        let viewW=self.view.frame.width/2
-        let viewH=self.view.frame.width/2
-        let xV=self.view.frame.width/2-self.view.frame.width/4
-        let yV=self.view.frame.height/2-self.view.frame.width/4
         
-        let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
+        var width : CGFloat {
+            return UIScreen.mainScreen().bounds.size.width
+        }
+        
+        var height : CGFloat {
+            return UIScreen.mainScreen().bounds.size.height
+        }
+        
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
         newImageView.frame = frame
         newImageView.backgroundColor = .blackColor()
         newImageView.contentMode = .Redraw

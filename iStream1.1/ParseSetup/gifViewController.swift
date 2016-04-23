@@ -9,6 +9,7 @@
 import AVFoundation
 import UIKit
 import Photos
+import NVActivityIndicatorView
 
 extension UIImage {
     public func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
@@ -57,16 +58,16 @@ extension UIImage {
 
 struct RenderSettings {
     
-//    var width : CGFloat {
-//        return UIScreen.mainScreen().bounds.size.width
-//    }
-//    
-//    var height : CGFloat {
-//        return UIScreen.mainScreen().bounds.size.height
-//    }
+    var width : CGFloat {
+        return UIScreen.mainScreen().bounds.size.width
+    }
+    
+    var height : CGFloat {
+        return UIScreen.mainScreen().bounds.size.height
+    }
 //    var tryH = UIScreen.mainScreen().bounds.size.height
-    var width: CGFloat = 1280
-    var height: CGFloat = 720
+//    var width: CGFloat = 1280
+//    var height: CGFloat = 720
     var fps: Int32 = 1   // 1 frames per second
     var avCodecKey = AVVideoCodecH264
     var videoFilename = "stream"
@@ -211,9 +212,17 @@ class VideoWriter {
         
         CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height))
         
-        let horizontalRatio = size.width / image.size.width
-        let verticalRatio = size.height / image.size.height
-        //aspectRatio = max(horizontalRatio, verticalRatio) // ScaleAspectFill
+        var width : CGFloat {
+            return UIScreen.mainScreen().bounds.size.width
+        }
+        
+        var height : CGFloat {
+            return UIScreen.mainScreen().bounds.size.height
+        }
+        
+        let horizontalRatio = width / image.size.width
+        let verticalRatio = height / image.size.height
+        //let aspectRatio = max(horizontalRatio, verticalRatio) // ScaleAspectFill
         let aspectRatio = min(horizontalRatio, verticalRatio) // ScaleAspectFit
         
         let newSize = CGSize(width: image.size.width * aspectRatio, height: image.size.height * aspectRatio)
@@ -247,6 +256,8 @@ class VideoWriter {
             ]
             pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: videoWriterInput,
                                                                       sourcePixelBufferAttributes: sourcePixelBufferAttributesDictionary)
+            
+            print("Set the input size and width")
         }
         
         func createAssetWriter(outputURL: NSURL) -> AVAssetWriter {
@@ -335,7 +346,6 @@ class gifViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         if (myImages != nil) {
             yoImages = myImages!
             if(copyRot == false){
@@ -356,24 +366,18 @@ class gifViewController: UIViewController {
 
         }
 
-        
-        
-
         let settings = RenderSettings()
         let imageAnimator = ImageAnimator(renderSettings: settings)
         imageAnimator.render() {
             print("Video created!")
             let alertController = UIAlertController(title: "Default Style", message: "Yoohoo! Your video was created! Check your library!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                print("Alert created")
             }
             alertController.addAction(OKAction)
-            
             self.presentViewController(alertController, animated: true) {
             }
         }
     }
-    
     
     @IBAction func onShareButton(sender: AnyObject) {
         print("Implement share feature")

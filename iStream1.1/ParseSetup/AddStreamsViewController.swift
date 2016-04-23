@@ -67,8 +67,6 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func stopLoading(){
-
-
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.loadingView.alpha = 0.0
             }, completion: {
@@ -80,7 +78,6 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
                     self.tableView.alpha = 1.0
                     }, completion: nil)
         })
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,7 +118,6 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     @IBAction func addImageToStreams(sender: UITapGestureRecognizer) {
-        print("Got the touch")
         if (imageToAdd != nil) {
             
             for (var i=0; i<allStreams?.count; i += 1) {
@@ -130,7 +126,7 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 if (allStreams![i].shouldAddImage == true ) {
                     addStreams?.append(allStreams![i])
-                    print("Adding image to \(allStreams![i].name) right?")
+                    print("Adding image to \(allStreams![i].name)")
                 }
             }
             

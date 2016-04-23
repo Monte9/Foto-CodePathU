@@ -51,7 +51,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 self.tableView.reloadData()
             }
         })
-        print("I am here")
         //loadingView.stopAnimation()
     }
     
