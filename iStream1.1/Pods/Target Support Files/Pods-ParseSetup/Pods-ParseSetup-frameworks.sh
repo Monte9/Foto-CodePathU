@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-ParseSetup/BOZPongRefreshControl.framework"
   install_framework "Pods-ParseSetup/BlurryModalSegue.framework"
   install_framework "Pods-ParseSetup/Bolts.framework"
   install_framework "Pods-ParseSetup/MGSwipeTableCell.framework"
@@ -98,6 +99,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-ParseSetup/VideoSplashKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-ParseSetup/BOZPongRefreshControl.framework"
   install_framework "Pods-ParseSetup/BlurryModalSegue.framework"
   install_framework "Pods-ParseSetup/Bolts.framework"
   install_framework "Pods-ParseSetup/MGSwipeTableCell.framework"

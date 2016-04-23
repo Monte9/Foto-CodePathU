@@ -17,11 +17,12 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     
     var imagesForSection0: [UIImage] = []
     var imagesForSection1: [UIImage] = []
+    var keepRot:Bool=false
     
     var streamId: String?
     var images: [Image]?
     var streamName: String?
-    
+    var rotate:Bool=false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.alpha = 0.0
@@ -65,6 +66,12 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
                     self.imagesForSection1 = []
                 }
             }
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(keepRot==true){
+            rotate=true
         }
     }
     
@@ -152,7 +159,13 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
         print("What are you Mr? \(imageView.image)")
         let newImageView = UIImageView(image: imageView.image)
         print(newImageView.image)
-        newImageView.frame = self.view.frame
+        let viewW=self.view.frame.width/2
+        let viewH=self.view.frame.width/2
+        let xV=self.view.frame.width/2-self.view.frame.width/4
+        let yV=self.view.frame.height/2-self.view.frame.width/4
+        
+        let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
+        newImageView.frame = frame
         newImageView.backgroundColor = .blackColor()
         newImageView.contentMode = .Redraw
         newImageView.userInteractionEnabled = true
@@ -207,8 +220,12 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let gifNavController = segue.destinationViewController as! UINavigationController
         let giffyViewController = gifNavController.topViewController as! gifViewController
+        
         giffyViewController.myImages = self.images!
+        giffyViewController.copyRot = self.rotate
+        giffyViewController.noBa=self
     }
+    
 }
 
 class RACollectionViewCell: UICollectionViewCell {

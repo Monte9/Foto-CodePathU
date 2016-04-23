@@ -10,6 +10,7 @@ import UIKit
 import Parse
 import MGSwipeTableCell
 import NVActivityIndicatorView
+import BOZPongRefreshControl
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -66,6 +67,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         })
     }
     
+//    func viewDidLayoutSubviews() {
+//        self.pongRefreshControl = BOZPongRefreshControl.attachToTableView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
+//    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return streams?.count ?? 0
     }
@@ -103,7 +108,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             photosViewController.streamId = newStream.id
             photosViewController.streamName = newStream.name
         }
-        
     }
     
     @IBAction func backToCamera(sender: AnyObject) {
