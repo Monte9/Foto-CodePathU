@@ -65,8 +65,8 @@ struct RenderSettings {
 //        return UIScreen.mainScreen().bounds.size.height
 //    }
 //    var tryH = UIScreen.mainScreen().bounds.size.height
-    var width: CGFloat = 720//1280
-    var height: CGFloat = 1280//720
+    var width: CGFloat = 1280
+    var height: CGFloat = 720
     var fps: Int32 = 1   // 1 frames per second
     var avCodecKey = AVVideoCodecH264
     var videoFilename = "stream"
