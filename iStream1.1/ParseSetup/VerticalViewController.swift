@@ -132,7 +132,37 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
         }else {
             cell.imageView.image = imagesForSection1[indexPath.item]
         }
+
+        // print("\(cell.imageView.image)")
+        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageTapped:")
+        
+        // Optionally set the number of required taps, e.g., 2 for a double click
+        tapGestureRecognizer.numberOfTapsRequired = 1;
+        
+        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+        cell.imageView.userInteractionEnabled = true
+        cell.imageView.addGestureRecognizer(tapGestureRecognizer)
+     
         return cell
+    }
+    
+    @IBAction func imageTapped(sender: UITapGestureRecognizer) {
+        print("WOop woOp~")
+        let imageView = sender.view as! UIImageView
+        print("What are you Mr? \(imageView.image)")
+        let newImageView = UIImageView(image: imageView.image)
+        print(newImageView.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .blackColor()
+        newImageView.contentMode = .Redraw
+        newImageView.userInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: "dismissFullscreenImage:")
+        newImageView.addGestureRecognizer(tap)
+        self.view.addSubview(newImageView)
+    }
+    
+    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
     }
     
     func collectionView(collectionView: UICollectionView, allowMoveAtIndexPath indexPath: NSIndexPath) -> Bool {
