@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
+import Spring
 
 class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddStreamCellDelegate, CreateNewStreamControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    var loadingView: NVActivityIndicatorView!
     
     var allStreams: [Stream]? = []
     var addStreams: [Stream]? = []
@@ -21,6 +24,21 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.alpha = 0.0
+        let viewW=self.view.frame.width/2
+        let viewH=self.view.frame.width/2
+        let xV=self.view.frame.width/2-self.view.frame.width/4
+        let yV=self.view.frame.height/2-self.view.frame.width/4
+        
+        let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
+        loadingView = NVActivityIndicatorView(frame: frame)
+        loadingView.type = .SquareSpin
+        loadingView.color = UIColor.redColor()
+        loadingView.padding = 20
+        
+        loadingView.startAnimation()
+        self.view.addSubview(loadingView)
         
         //Make the status bar white color
         UIApplication.sharedApplication().statusBarStyle = .Default
@@ -37,6 +55,34 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
+    func viewMoveInFromBottom(view:UIView, animationTime:Float)
+    {
+        var animation:CATransition = CATransition()
+        animation.duration = CFTimeInterval(animationTime)
+        animation.type = "moveIn"
+        animation.timingFunction = CAMediaTimingFunction(name: "easeInEaseOut")
+        animation.subtype = "fromTop"
+        view.layer.addAnimation(animation, forKey: nil)
+    }
+    
+    
+    func stopLoading(){
+
+
+        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.loadingView.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+
+                
+                UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.tableView.alpha = 1.0
+                    }, completion: nil)
+        })
+        
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allStreams?.count ?? 0
     }
@@ -48,6 +94,7 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.delegate = self
         
         if (allStreams != nil) {
+            stopLoading()
             cell.stream = allStreams![indexPath.row]
             cell.selectSwitch.on = allStreams![indexPath.row].shouldAddImage ?? false
         }

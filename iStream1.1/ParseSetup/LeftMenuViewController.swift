@@ -50,6 +50,10 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         case 0:
             self.sideMenuViewController.setContentViewController(self.storyboard?.instantiateViewControllerWithIdentifier("camera"), animated: true)
             self.sideMenuViewController.hideMenuViewController()
+            
+            var onCamera : CameraViewController!
+            onCamera.onRetake(self)
+            
             break
         case 1:
             print("Need to implement Share feature")
@@ -63,6 +67,8 @@ class LeftMenuViewController: UIViewController, UITableViewDelegate, UITableView
         default:
             break;
         }
+//        var onCamera : CameraViewController!
+//        onCamera.onRetake(self)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

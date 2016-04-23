@@ -15,5 +15,13 @@ pod 'UIColor_Hex_Swift', '~> 2.1'
 
 pod 'BlurryModalSegue'
 
+pod 'MGSwipeTableCell'
+
+pod 'VideoSplashKit'
+
+pod 'NVActivityIndicatorView'
+
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+
 end
 

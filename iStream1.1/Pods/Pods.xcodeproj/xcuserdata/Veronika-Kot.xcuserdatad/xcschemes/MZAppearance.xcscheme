@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '703A2C82EE8426D15EBEF381'
-               BlueprintName = 'RAReorderableLayout'
+               BlueprintIdentifier = '593E977AE1EE08FB949438B7'
+               BlueprintName = 'MZAppearance'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'RAReorderableLayout.framework'>
+               BuildableName = 'MZAppearance.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -3,29 +3,51 @@ PODS:
     - MZAppearance (~> 1.1.1)
     - UIImage+BlurredFrame (~> 0.0.4)
   - Bolts/Tasks (1.6.0)
+  - MGSwipeTableCell (1.5.5)
   - MZAppearance (1.1.6)
+  - NVActivityIndicatorView (2.5)
   - Onboard (2.1.9)
   - Parse (1.12.0):
     - Bolts/Tasks (~> 1.5)
   - RESideMenu (4.0.7)
+  - Spring (1.0.3)
   - UIColor_Hex_Swift (2.1)
   - UIImage+BlurredFrame (0.0.4)
+  - VideoSplashKit (1.1.0)
 
 DEPENDENCIES:
   - BlurryModalSegue
+  - MGSwipeTableCell
+  - NVActivityIndicatorView
   - Onboard
   - Parse
   - RESideMenu (~> 4.0.7)
+  - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - UIColor_Hex_Swift (~> 2.1)
+  - VideoSplashKit
+
+EXTERNAL SOURCES:
+  Spring:
+    :branch: swift2
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: 18d5c7b74489de8044e34767f856d1e574f0820e
+    :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
   BlurryModalSegue: 35cdad34eba31228e4d84073033a9ea7d6537aa4
   Bolts: f52a250053bb517ca874523c3913776359ab3def
+  MGSwipeTableCell: bafeb5f351124544c9364ecbdf24c7b06a37d340
   MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  NVActivityIndicatorView: 18e82784c9cb2d5f3df3129a3e4754eb075ebca0
   Onboard: 4d92c763ed15f939071dec12e87ed9e8dc036746
   Parse: de2c52a9a1421b91ae7594ab8ce191afd184f19b
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   UIColor_Hex_Swift: e91dc51f6bf252ec7bf74c8704ceedeeb7640c1c
   UIImage+BlurredFrame: ad2f7195c6947ea3117c7d202f75a51958d5061a
+  VideoSplashKit: 0aa63d0bb37c5bd357de3e6a2a13dea5acad4d66
 
 COCOAPODS: 0.39.0

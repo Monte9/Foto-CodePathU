@@ -279,13 +279,23 @@ class gifViewController: UIViewController {
         if (myImages != nil) {
             yoImages = myImages!
             print("Array copied")
+            
+            var images = [UIImage]()
+            
+            for i in 0..<myImages!.count{
+                images.append(myImages![i].image!)
+            }
+            
+            imageView.animationImages = images
+            imageView.animationDuration = 6.0
+            imageView.startAnimating()
         }
 
         let settings = RenderSettings()
         let imageAnimator = ImageAnimator(renderSettings: settings)
         imageAnimator.render() {
             print("Video created!")
-            let alertController = UIAlertController(title: "Default Style", message: "A standard alert.", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Default Style", message: "Yoohoo! Your video was created! Check your library!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
                 print("Alert created")
             }
@@ -295,6 +305,12 @@ class gifViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    
+    
     
     @IBAction func onShareButton(sender: AnyObject) {
         print("Implement share feature")
