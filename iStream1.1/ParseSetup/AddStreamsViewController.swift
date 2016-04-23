@@ -8,6 +8,7 @@
 
 import UIKit
 import NVActivityIndicatorView
+import Spring
 
 class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AddStreamCellDelegate, CreateNewStreamControllerDelegate {
 
@@ -32,7 +33,7 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
         loadingView = NVActivityIndicatorView(frame: frame)
-        loadingView.type = .BallScaleRippleMultiple
+        loadingView.type = .SquareSpin
         loadingView.color = UIColor.redColor()
         loadingView.padding = 20
         
@@ -54,16 +55,32 @@ class AddStreamsViewController: UIViewController, UITableViewDelegate, UITableVi
 
     }
     
+    func viewMoveInFromBottom(view:UIView, animationTime:Float)
+    {
+        var animation:CATransition = CATransition()
+        animation.duration = CFTimeInterval(animationTime)
+        animation.type = "moveIn"
+        animation.timingFunction = CAMediaTimingFunction(name: "easeInEaseOut")
+        animation.subtype = "fromTop"
+        view.layer.addAnimation(animation, forKey: nil)
+    }
+    
+    
     func stopLoading(){
+
+
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.loadingView.alpha = 0.0
             }, completion: {
                 (finished: Bool) -> Void in
                 
+
+                
                 UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.tableView.alpha = 1.0
                     }, completion: nil)
         })
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -32,7 +32,7 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
         
         let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
         loadingView = NVActivityIndicatorView(frame: frame)
-        loadingView.type = .BallScaleRippleMultiple
+        loadingView.type = .BallPulseRise
         loadingView.color = UIColor.redColor()
         loadingView.padding = 20
         

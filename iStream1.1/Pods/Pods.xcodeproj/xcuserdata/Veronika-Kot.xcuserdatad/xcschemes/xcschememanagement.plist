@@ -49,6 +49,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UIColor_Hex_Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,12 +72,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
+		<key>21F76CB78F007390F92D20B4EB7A23B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F3F1C43980677102BE37B04C07DCB52</key>
+		<key>25CFF2FB332C9839A39D87FE458B72E0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>371FA1EB2D907590B1409E4A361DA6E5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E1263BFF45F6446CF3DE29AE234C893</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,6 +102,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8427CE3640C5E068F9EC3D841DC94084</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>873541C483C90ACB8B4884D876CE3C56</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9D6F66BBE6336D06C25E5B420D804A4F</key>
 		<dict>
 			<key>primary</key>
@@ -97,17 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ACBF843172D5601745F40DDF393EF8AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B0214E86E9E229E292863BC821997C4D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BC668350AA70CAC2BA692C6C98E8E17A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -118,11 +133,6 @@
 			<true/>
 		</dict>
 		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F699FEDAA038466F73EF4854183C0F22</key>
 		<dict>
 			<key>primary</key>
 			<true/>

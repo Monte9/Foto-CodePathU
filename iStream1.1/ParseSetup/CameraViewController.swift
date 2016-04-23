@@ -147,6 +147,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         photos.hidden=false
         streams.hidden=false
         flipCamera.hidden=false
+        profileButton.hidden = false
         
         
         background.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0)
@@ -198,6 +199,8 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
         vc.delegate = self
         
         cameraCapture.hidden=true
+        profileButton.hidden = true
+        flipCamera.hidden=true
         photos.hidden=true
         streams.hidden=true
         usePhoto.hidden = false
@@ -211,6 +214,7 @@ class CameraViewController: UIViewController, XMCCameraDelegate, UIImagePickerCo
     
     @IBAction func onProfileMenu(sender: AnyObject) {
         self.presentLeftMenuViewController(self)
+        
     }
     
     func imagePickerController(
