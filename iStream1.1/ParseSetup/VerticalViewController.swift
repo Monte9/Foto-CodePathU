@@ -52,8 +52,6 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
     var newImageView: UIImageView!
     var newlyCreatedFaceOriginalCenter: CGPoint!
     var button:UIButton!
-    var merged: Bool!
-    
     var saveButton:UIButton!
 
     
@@ -196,8 +194,6 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
     
     @IBAction func imageTapped(sender: UITapGestureRecognizer) {
         
-        //sender.view = DynamicView
-        
         let imageView = sender.view as! UIImageView
         newImageView = UIImageView(image: imageView.image)
         
@@ -224,14 +220,14 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
         button = UIButton(type: UIButtonType.System) as UIButton
         button.frame = CGRectMake(236, 80, 100, 50)
         button.backgroundColor = UIColor.greenColor()
-        button.setTitle("Test Button", forState: UIControlState.Normal)
+        button.setTitle("back", forState: UIControlState.Normal)
         button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
         
         
         saveButton = UIButton(type: UIButtonType.System) as UIButton
         saveButton.frame = CGRectMake(10, 80, 100, 50)
         saveButton.backgroundColor = UIColor.greenColor()
-        saveButton.setTitle("Test Button", forState: UIControlState.Normal)
+        saveButton.setTitle("save", forState: UIControlState.Normal)
         saveButton.addTarget(self, action: "buttonActionSave:", forControlEvents: UIControlEvents.TouchUpInside)
     
      //   newImageView.addGestureRecognizer(tap)
@@ -241,50 +237,44 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
         self.view.addSubview(saveButton)
         getEmoji()
         
-        if merged == true {
-            var imageEmoji : UIImage
-            imageEmoji = lastchance() as UIImage
-            sender.view=imageEmoji
+    }
+    
+    
+    
+        func getEmoji(){
+            let cols = 3
+            let rows = 1
+            let cellWidth = Int(DynamicView!.frame.width / CGFloat(cols))
+            let cellHeight = Int(DynamicView!.frame.height / CGFloat(rows))
+            
+            
+            for i in 0 ..< emoji.count {
+                let x = i % cols * cellWidth
+                let y = i / cols * cellHeight
+                let imageN = emoji[i]
+                let emojiView = UIImageView(image: imageN)
+                emojiView.frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
+                
+                var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "dragEmoji:")
+                
+                // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+                emojiView.userInteractionEnabled = true
+                //emojiView.addGestureRecognizer(panGestureRecognizer)
+                
+                DynamicView!.addSubview(emojiView)
+                emojiView.addGestureRecognizer(panGestureRecognizer)
+            }
         }
-    }
-    
-    func lastchance()-> UIImage {
-        let mergedImage = newImageView.capture()
-        return mergedImage
-    }
     
     
-    func getEmoji(){
-//        let emojiView: UIImageView?
-        let cols = 3
-        let rows = 1
-        let cellWidth = Int(DynamicView!.frame.width / CGFloat(cols))
-        let cellHeight = Int(DynamicView!.frame.height / CGFloat(rows))
-        
-        
-        for i in 0 ..< emoji.count {
-           // let emojiView: UIImageView?
-            let x = i % cols * cellWidth
-            let y = i / cols * cellHeight
-            let imageN = emoji[i]
-            let emojiView = UIImageView(image: imageN)
-            emojiView.frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
-            
-            var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "dragEmoji:")
-            
-            
-            // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
-            emojiView.userInteractionEnabled = true
-            //emojiView.addGestureRecognizer(panGestureRecognizer)
-            
-            DynamicView!.addSubview(emojiView)
-            emojiView.addGestureRecognizer(panGestureRecognizer)
-        }
-    }
+       //******************************************************************************
+       //*             saving new image
     
         func buttonActionSave(sender: UIButton){
-           merged = true
-            Superview.image
+           let mergedImage = newImageView.capture()
+           newImageView.image=mergedImage
+           newlyCreatedFace.removeFromSuperview()
+            
         }
         
         
@@ -293,6 +283,7 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
             newImageView.removeFromSuperview()
             sender.removeFromSuperview()
             DynamicView!.removeFromSuperview()
+            saveButton.removeFromSuperview()
             print("tapSmall")
             
         }
@@ -311,7 +302,6 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
             newlyCreatedFace.center.y += DynamicView!.frame.origin.y
             faceOriginalCenter = newlyCreatedFace.center
         
-        
             print("New smiley created")
             
             
@@ -326,8 +316,8 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
             
             panGestureRecognizer.delegate = self
             // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
+            
             newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
-            //  panGestureRecognizer.delegate = self
             newlyCreatedFace.userInteractionEnabled = true
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
