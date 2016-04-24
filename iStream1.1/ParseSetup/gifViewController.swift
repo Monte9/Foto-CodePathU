@@ -65,7 +65,7 @@ struct RenderSettings {
     var height : CGFloat {
         return UIScreen.mainScreen().bounds.size.height
     }
-//    var tryH = UIScreen.mainScreen().bounds.size.height
+
 //    var width: CGFloat = 1280
 //    var height: CGFloat = 720
     var fps: Int32 = 1   // 1 frames per second
