@@ -10,7 +10,7 @@ import UIKit
 
 protocol CreateNewStreamControllerDelegate
 {
-    func sendValue(var value : NSString)
+    func sendValue(value : NSString)
 }
 
 class CreateNewStreamController: UIViewController {

@@ -10,7 +10,6 @@ import UIKit
 import MediaPlayer
 import NVActivityIndicatorView
 
-
 extension UIView {
     
     func capture() -> UIImage {
@@ -24,15 +23,9 @@ extension UIView {
     }
 }
 
-
-class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource {
+class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource, EditImageDelegate {
     
     var DynamicView: UIView?
-    var emoji: [UIImage] = [
-        UIImage(named: "Untitled")!,
-        UIImage(named: "Untitled1")!,
-        UIImage(named: "Untitled2")!
-    ]
 
     @IBOutlet weak var collectionView: UICollectionView!
     var loadingView: NVActivityIndicatorView!
@@ -49,11 +42,16 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
     var rotate:Bool=false
     var newlyCreatedFace: UIImageView!
     var faceOriginalCenter: CGPoint!
-    var newImageView: UIImageView!
+    
     var newlyCreatedFaceOriginalCenter: CGPoint!
     var button:UIButton!
     var saveButton:UIButton!
-
+    var bgImageView: UIImageView?
+    
+    struct Static {
+        static var bgImage: UIImage?
+        static var index: Int?
+    }
     
     var id : Int!
     
@@ -178,205 +176,20 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
 
         var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageTapped:")
         
-        // Optionally set the number of required taps, e.g., 2 for a double click
         tapGestureRecognizer.numberOfTapsRequired = 1;
-        
-        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
         cell.imageView.userInteractionEnabled = true
         cell.imageView.addGestureRecognizer(tapGestureRecognizer)
-        
-        print(indexPath)
         
         return cell
     }
     
-    
-    
     @IBAction func imageTapped(sender: UITapGestureRecognizer) {
-        
-        let imageView = sender.view as! UIImageView
-        newImageView = UIImageView(image: imageView.image)
-        
-        var width : CGFloat {
-            return UIScreen.mainScreen().bounds.size.width
-        }
-        
-        var height : CGFloat {
-            return UIScreen.mainScreen().bounds.size.height
-        }
-        
-        DynamicView=UIView(frame: CGRectMake(0, height-80, width, 80))
-        DynamicView!.backgroundColor=UIColor.blackColor()
-
-        
-        let frame = CGRect(x: 0, y: 60, width: width, height: height-120)
-        newImageView.frame = frame
-        newImageView.backgroundColor = .blackColor()
-        newImageView.contentMode = .Redraw
-        newImageView.userInteractionEnabled = true
-     //   let tap = UITapGestureRecognizer(target: self, action: "dismissFullscreenImage:")
-        print("tapBig")
-        
-        button = UIButton(type: UIButtonType.System) as UIButton
-        button.frame = CGRectMake(236, 80, 100, 50)
-        button.backgroundColor = UIColor.greenColor()
-        button.setTitle("back", forState: UIControlState.Normal)
-        button.addTarget(self, action: "buttonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        
-        saveButton = UIButton(type: UIButtonType.System) as UIButton
-        saveButton.frame = CGRectMake(10, 80, 100, 50)
-        saveButton.backgroundColor = UIColor.greenColor()
-        saveButton.setTitle("save", forState: UIControlState.Normal)
-        saveButton.addTarget(self, action: "buttonActionSave:", forControlEvents: UIControlEvents.TouchUpInside)
-    
-     //   newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-        self.view.addSubview(DynamicView!)
-        self.view.addSubview(button)
-        self.view.addSubview(saveButton)
-        getEmoji()
-        
+        bgImageView = sender.view as? UIImageView
+     //   var cell = sender as! RACollectionViewCell
+      //  VerticalViewController.Static.index = cell.imageView.
+        VerticalViewController.Static.bgImage = bgImageView?.image
+        self.performSegueWithIdentifier("DetailCellSegue", sender: self)
     }
-    
-    
-    
-        func getEmoji(){
-            let cols = 3
-            let rows = 1
-            let cellWidth = Int(DynamicView!.frame.width / CGFloat(cols))
-            let cellHeight = Int(DynamicView!.frame.height / CGFloat(rows))
-            
-            
-            for i in 0 ..< emoji.count {
-                let x = i % cols * cellWidth
-                let y = i / cols * cellHeight
-                let imageN = emoji[i]
-                let emojiView = UIImageView(image: imageN)
-                emojiView.frame = CGRect(x: x, y: y, width: cellWidth, height: cellHeight)
-                
-                var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "dragEmoji:")
-                
-                // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
-                emojiView.userInteractionEnabled = true
-                //emojiView.addGestureRecognizer(panGestureRecognizer)
-                
-                DynamicView!.addSubview(emojiView)
-                emojiView.addGestureRecognizer(panGestureRecognizer)
-            }
-        }
-    
-    
-       //******************************************************************************
-       //*             saving new image
-    
-        func buttonActionSave(sender: UIButton){
-           let mergedImage = newImageView.capture()
-           newImageView.image=mergedImage
-           newlyCreatedFace.removeFromSuperview()
-            
-        }
-        
-        
-        func buttonAction(sender: UIButton) {
-            
-            newImageView.removeFromSuperview()
-            sender.removeFromSuperview()
-            DynamicView!.removeFromSuperview()
-            saveButton.removeFromSuperview()
-            print("tapSmall")
-            
-        }
-    
-    func dragEmoji(panGestureRecognizer: UIPanGestureRecognizer) {
-       // print("here")
-        
-        let translation = panGestureRecognizer.translationInView(newlyCreatedFace)
-        
-        if panGestureRecognizer.state == UIGestureRecognizerState.Began {
-            let imageView = panGestureRecognizer.view as! UIImageView
-            newlyCreatedFace = UIImageView(image: imageView.image)
-            newlyCreatedFace.frame = CGRectMake(0,0, 100, 100)//(0, 0, 60, 60)
-            newImageView.addSubview(newlyCreatedFace)
-            newlyCreatedFace.center = imageView.center
-            newlyCreatedFace.center.y += DynamicView!.frame.origin.y
-            faceOriginalCenter = newlyCreatedFace.center
-        
-            print("New smiley created")
-            
-            
-            var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "onCustomPan:")
-            var pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: "onCustomPinch:")
-            var rotateGestureRecognizer = UIRotationGestureRecognizer(target: self, action: "onCustomRotate:")
-            
-            
-            pinchGestureRecognizer.delegate = self
-            self.newlyCreatedFace.addGestureRecognizer(pinchGestureRecognizer)
-            // self.newlyCreatedFace.addGestureRecognizer(rotateGestureRecognizer)
-            
-            panGestureRecognizer.delegate = self
-            // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
-            
-            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
-            newlyCreatedFace.userInteractionEnabled = true
-            
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                self.newlyCreatedFace.transform = CGAffineTransformMakeScale(self.faceScale, self.faceScale)
-            })
-        
-        } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
-            newlyCreatedFace.center = CGPoint(x: faceOriginalCenter.x + translation.x, y: faceOriginalCenter.y + translation.y)
-        }
-        
-    }
-    
-    func onCustomPan(panGestureRecognizer: UIPanGestureRecognizer) {
-        
-        // Absolute (x,y) coordinates in parent view
-        var point = panGestureRecognizer.locationInView(view)
-        
-        // Relative change in (x,y) coordinates from where gesture began.
-        var translation = panGestureRecognizer.translationInView(view)
-        var velocity = panGestureRecognizer.velocityInView(view)
-        
-        var imageView = panGestureRecognizer.view as! UIImageView
-        
-        if panGestureRecognizer.state == UIGestureRecognizerState.Began {
-            newlyCreatedFaceOriginalCenter = imageView.center
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                imageView.transform = CGAffineTransformMakeScale(self.faceScale + 1.4, self.faceScale + 1.4)
-            })
-            
-        } else if panGestureRecognizer.state == UIGestureRecognizerState.Changed {
-            imageView.center = CGPoint(x: translation.x + newlyCreatedFaceOriginalCenter.x, y: translation.y + newlyCreatedFaceOriginalCenter.y)
-        } else if panGestureRecognizer.state == UIGestureRecognizerState.Ended {
-            UIView.animateWithDuration(0.3, animations: { () -> Void in
-                imageView.transform = CGAffineTransformMakeScale(self.faceScale, self.faceScale)
-            })
-        }
-    }
-
-    
-    func onCustomPinch(pinchGestureRecognizer: UIPinchGestureRecognizer) {
-        print("Pinch!")
-        faceScale = pinchGestureRecognizer.scale
-        let velocity = pinchGestureRecognizer.velocity
-        
-        let newImageView = pinchGestureRecognizer.view as! UIImageView
-        newImageView.transform = CGAffineTransformMakeScale(faceScale, faceScale)
-    }
-    
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer!, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer!) -> Bool {
-        return true
-    }
-    
-//    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
-//        sender.view?.removeFromSuperview()
-//        DynamicView!.removeFromSuperview()
-//        print("tapSmall")
-//    }
-    
     
     func collectionView(collectionView: UICollectionView, allowMoveAtIndexPath indexPath: NSIndexPath) -> Bool {
         if collectionView.numberOfItemsInSection(indexPath.section) <= 1 {
@@ -416,14 +229,26 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
     func scrollTrigerPaddingInCollectionView(collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
     }
+    
+    func sendImage(image: UIImage) {
+        self.imagesForSection0.append(image)
+        print("Added the image to section 0")
+        self.collectionView.reloadData()
+    }
         
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let gifNavController = segue.destinationViewController as! UINavigationController
-        let giffyViewController = gifNavController.topViewController as! gifViewController
-        
-        giffyViewController.myImages = self.images!
-        giffyViewController.copyRot = self.rotate
-        giffyViewController.noBa=self
+        if segue.identifier == "gifSegue" {
+            let gifNavController = segue.destinationViewController as! UINavigationController
+            let giffyViewController = gifNavController.topViewController as! gifViewController
+            
+            giffyViewController.myImages = self.images!
+            giffyViewController.copyRot = self.rotate
+            giffyViewController.noBa=self
+        } else if segue.identifier == "DetailCellSegue" {
+            let editViewController = segue.destinationViewController as! EditImage
+            editViewController.delegate = self
+            editViewController.bgImage = VerticalViewController.Static.bgImage
+        }
     }
     
 }
