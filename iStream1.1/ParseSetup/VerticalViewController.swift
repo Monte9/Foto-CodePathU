@@ -10,18 +10,18 @@ import UIKit
 import MediaPlayer
 import NVActivityIndicatorView
 
-extension UIView {
-    
-    func capture() -> UIImage {
-        
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        return image
-    }
-}
+//extension UIView {
+//    
+//    func capture() -> UIImage {
+//        
+//        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
+//        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        
+//        return image
+//    }
+//}
 
 class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource, EditImageDelegate {
     
