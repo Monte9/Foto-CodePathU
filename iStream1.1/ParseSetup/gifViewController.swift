@@ -9,11 +9,65 @@
 import AVFoundation
 import UIKit
 import Photos
+import NVActivityIndicatorView
+
+extension UIImage {
+    public func imageRotatedByDegrees(degrees: CGFloat, flip: Bool) -> UIImage {
+        let radiansToDegrees: (CGFloat) -> CGFloat = {
+            return $0 * (180.0 / CGFloat(M_PI))
+        }
+        let degreesToRadians: (CGFloat) -> CGFloat = {
+            return $0 / 180.0 * CGFloat(M_PI)
+        }
+        
+        // calculate the size of the rotated view's containing box for our drawing space
+        let rotatedViewBox = UIView(frame: CGRect(origin: CGPointZero, size: size))
+        let t = CGAffineTransformMakeRotation(degreesToRadians(degrees));
+        rotatedViewBox.transform = t
+        let rotatedSize = rotatedViewBox.frame.size
+        
+        // Create the bitmap context
+        UIGraphicsBeginImageContext(rotatedSize)
+        let bitmap = UIGraphicsGetCurrentContext()
+        
+        // Move the origin to the middle of the image so we will rotate and scale around the center.
+        CGContextTranslateCTM(bitmap, rotatedSize.width / 2.0, rotatedSize.height / 2.0);
+        
+        //   // Rotate the image context
+        CGContextRotateCTM(bitmap, degreesToRadians(degrees));
+        
+        // Now, draw the rotated/scaled image into the context
+        var yFlip: CGFloat
+        
+        if(flip){
+            yFlip = CGFloat(-1.0)
+        } else {
+            yFlip = CGFloat(1.0)
+        }
+        
+        CGContextScaleCTM(bitmap, yFlip, -1.0)
+        CGContextDrawImage(bitmap, CGRectMake(-size.width / 2, -size.height / 2, size.width, size.height), CGImage)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+}
+
 
 struct RenderSettings {
     
-    var width: CGFloat = 1280
-    var height: CGFloat = 720
+    var width : CGFloat {
+        return UIScreen.mainScreen().bounds.size.width
+    }
+    
+    var height : CGFloat {
+        return UIScreen.mainScreen().bounds.size.height
+    }
+
+//    var width: CGFloat = 1280
+//    var height: CGFloat = 720
     var fps: Int32 = 1   // 1 frames per second
     var avCodecKey = AVVideoCodecH264
     var videoFilename = "stream"
@@ -158,9 +212,17 @@ class VideoWriter {
         
         CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height))
         
-        let horizontalRatio = size.width / image.size.width
-        let verticalRatio = size.height / image.size.height
-        //aspectRatio = max(horizontalRatio, verticalRatio) // ScaleAspectFill
+        var width : CGFloat {
+            return UIScreen.mainScreen().bounds.size.width
+        }
+        
+        var height : CGFloat {
+            return UIScreen.mainScreen().bounds.size.height
+        }
+        
+        let horizontalRatio = width / image.size.width
+        let verticalRatio = height / image.size.height
+        //let aspectRatio = max(horizontalRatio, verticalRatio) // ScaleAspectFill
         let aspectRatio = min(horizontalRatio, verticalRatio) // ScaleAspectFit
         
         let newSize = CGSize(width: image.size.width * aspectRatio, height: image.size.height * aspectRatio)
@@ -194,6 +256,8 @@ class VideoWriter {
             ]
             pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: videoWriterInput,
                                                                       sourcePixelBufferAttributes: sourcePixelBufferAttributesDictionary)
+            
+            print("Set the input size and width")
         }
         
         func createAssetWriter(outputURL: NSURL) -> AVAssetWriter {
@@ -271,24 +335,35 @@ class gifViewController: UIViewController {
     
     @IBOutlet weak var shareButton: UIButton!
     
+    var noBa : VerticalViewController!
+    
+    var tempImages: [Image]? = []
     var myImages: [Image]? = []
+    
+    var copyRot:Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if (myImages != nil) {
             yoImages = myImages!
-            print("Array copied")
-            
-            var images = [UIImage]()
-            
-            for i in 0..<myImages!.count{
-                images.append(myImages![i].image!)
+            if(copyRot == false){
+                for i in 0..<myImages!.count{
+                 yoImages[i].image! = (myImages![i].image?.imageRotatedByDegrees(90, flip: false))!
+                }
+                noBa.keepRot = true
             }
-            
+            var images = [UIImage]()
+
+            for i in 0..<yoImages.count{
+                images.append(yoImages[i].image!)
+            }
+
             imageView.animationImages = images
             imageView.animationDuration = 6.0
             imageView.startAnimating()
+
         }
 
         let settings = RenderSettings()
@@ -297,20 +372,12 @@ class gifViewController: UIViewController {
             print("Video created!")
             let alertController = UIAlertController(title: "Default Style", message: "Yoohoo! Your video was created! Check your library!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-                print("Alert created")
             }
             alertController.addAction(OKAction)
-            
             self.presentViewController(alertController, animated: true) {
             }
         }
     }
-    
-    
-    
-    
-    
-    
     
     @IBAction func onShareButton(sender: AnyObject) {
         print("Implement share feature")
@@ -335,4 +402,9 @@ class gifViewController: UIViewController {
     }
     */
 
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        let destination=segue.destinationViewController as? gifViewController
+//        ro
+//
+//    }
 }

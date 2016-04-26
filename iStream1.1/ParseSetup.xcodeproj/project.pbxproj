@@ -19,6 +19,7 @@
 		FA483C671CC146E100B28322 /* AddStreamsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA483C661CC146E100B28322 /* AddStreamsViewController.swift */; };
 		FA483C691CC14D3400B28322 /* AddStreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA483C681CC14D3400B28322 /* AddStreamCell.swift */; };
 		FAA178471C993FB3007DF276 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA178461C993FB3007DF276 /* Image.swift */; };
+		FAB2FD141CCE006000AE4484 /* EditImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB2FD131CCE006000AE4484 /* EditImage.swift */; };
 		FAE6004F1C94FDC200EB3713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE6004E1C94FDC200EB3713 /* AppDelegate.swift */; };
 		FAE600511C94FDC200EB3713 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE600501C94FDC200EB3713 /* ViewController.swift */; };
 		FAE600541C94FDC200EB3713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAE600521C94FDC200EB3713 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		FA483C661CC146E100B28322 /* AddStreamsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStreamsViewController.swift; sourceTree = "<group>"; };
 		FA483C681CC14D3400B28322 /* AddStreamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddStreamCell.swift; sourceTree = "<group>"; };
 		FAA178461C993FB3007DF276 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		FAB2FD131CCE006000AE4484 /* EditImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImage.swift; sourceTree = "<group>"; };
 		FAE6004B1C94FDC200EB3713 /* ParseSetup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParseSetup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAE6004E1C94FDC200EB3713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAE600501C94FDC200EB3713 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				FA483C611CC071D800B28322 /* LeftMenuViewController.swift */,
 				7B7B3C001CC473770051BD9C /* VerticalViewController.swift */,
 				FA462ADD1CC95991001DF870 /* CreateNewStreamController.swift */,
+				FAB2FD131CCE006000AE4484 /* EditImage.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 				FAA178471C993FB3007DF276 /* Image.swift in Sources */,
 				FA483C691CC14D3400B28322 /* AddStreamCell.swift in Sources */,
 				FAE600511C94FDC200EB3713 /* ViewController.swift in Sources */,
+				FAB2FD141CCE006000AE4484 /* EditImage.swift in Sources */,
 				FA483C621CC071D800B28322 /* LeftMenuViewController.swift in Sources */,
 				FAE600611C950A8800EB3713 /* StreamCell.swift in Sources */,
 				7BE1D8F51CC41E0000A31E82 /* RAReorderableLayout.swift in Sources */,

@@ -10,17 +10,50 @@ import UIKit
 import MediaPlayer
 import NVActivityIndicatorView
 
-class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource {
+extension UIView {
+    
+    func capture() -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
+        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+}
+
+class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RAReorderableLayoutDelegate, RAReorderableLayoutDataSource, EditImageDelegate {
+    
+    var DynamicView: UIView?
 
     @IBOutlet weak var collectionView: UICollectionView!
     var loadingView: NVActivityIndicatorView!
     
     var imagesForSection0: [UIImage] = []
     var imagesForSection1: [UIImage] = []
+    var keepRot:Bool=false
+    
+    var faceScale: CGFloat! = CGFloat(1.0)
     
     var streamId: String?
     var images: [Image]?
     var streamName: String?
+    var rotate:Bool=false
+    var newlyCreatedFace: UIImageView!
+    var faceOriginalCenter: CGPoint!
+    
+    var newlyCreatedFaceOriginalCenter: CGPoint!
+    var button:UIButton!
+    var saveButton:UIButton!
+    var bgImageView: UIImageView?
+    
+    struct Static {
+        static var bgImage: UIImage?
+        static var index: Int?
+    }
+    
+    var id : Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +98,14 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
                     self.imagesForSection1 = []
                 }
             }
+        }
+        
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(keepRot==true){
+            rotate=true
         }
     }
     
@@ -133,36 +174,21 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
             cell.imageView.image = imagesForSection1[indexPath.item]
         }
 
-        // print("\(cell.imageView.image)")
         var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "imageTapped:")
         
-        // Optionally set the number of required taps, e.g., 2 for a double click
         tapGestureRecognizer.numberOfTapsRequired = 1;
-        
-        // Attach it to a view of your choice. If it's a UIImageView, remember to enable user interaction
         cell.imageView.userInteractionEnabled = true
         cell.imageView.addGestureRecognizer(tapGestureRecognizer)
-     
+        
         return cell
     }
     
     @IBAction func imageTapped(sender: UITapGestureRecognizer) {
-        print("WOop woOp~")
-        let imageView = sender.view as! UIImageView
-        print("What are you Mr? \(imageView.image)")
-        let newImageView = UIImageView(image: imageView.image)
-        print(newImageView.image)
-        newImageView.frame = self.view.frame
-        newImageView.backgroundColor = .blackColor()
-        newImageView.contentMode = .Redraw
-        newImageView.userInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: "dismissFullscreenImage:")
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-    }
-    
-    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
-        sender.view?.removeFromSuperview()
+        bgImageView = sender.view as? UIImageView
+     //   var cell = sender as! RACollectionViewCell
+      //  VerticalViewController.Static.index = cell.imageView.
+        VerticalViewController.Static.bgImage = bgImageView?.image
+        self.performSegueWithIdentifier("DetailCellSegue", sender: self)
     }
     
     func collectionView(collectionView: UICollectionView, allowMoveAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -203,12 +229,28 @@ class VerticalViewController: UIViewController, RAReorderableLayoutDelegate, RAR
     func scrollTrigerPaddingInCollectionView(collectionView: UICollectionView) -> UIEdgeInsets {
         return UIEdgeInsetsMake(collectionView.contentInset.top, 0, collectionView.contentInset.bottom, 0)
     }
+    
+    func sendImage(image: UIImage) {
+        self.imagesForSection0.append(image)
+        print("Added the image to section 0")
+        self.collectionView.reloadData()
+    }
         
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let gifNavController = segue.destinationViewController as! UINavigationController
-        let giffyViewController = gifNavController.topViewController as! gifViewController
-        giffyViewController.myImages = self.images!
+        if segue.identifier == "gifSegue" {
+            let gifNavController = segue.destinationViewController as! UINavigationController
+            let giffyViewController = gifNavController.topViewController as! gifViewController
+            
+            giffyViewController.myImages = self.images!
+            giffyViewController.copyRot = self.rotate
+            giffyViewController.noBa=self
+        } else if segue.identifier == "DetailCellSegue" {
+            let editViewController = segue.destinationViewController as! EditImage
+            editViewController.delegate = self
+            editViewController.bgImage = VerticalViewController.Static.bgImage
+        }
     }
+    
 }
 
 class RACollectionViewCell: UICollectionViewCell {

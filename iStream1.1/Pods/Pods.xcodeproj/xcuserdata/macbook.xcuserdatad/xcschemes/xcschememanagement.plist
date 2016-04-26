@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>BOZPongRefreshControl.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>BlurryModalSegue.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -100,6 +105,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>33BD1B8A1E2A26C6CBE2FA96519CED31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>371FA1EB2D907590B1409E4A361DA6E5</key>
 		<dict>
 			<key>primary</key>
@@ -116,6 +126,11 @@
 			<true/>
 		</dict>
 		<key>50F8C8F596D350061C0794A64950881B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>614A1B2E7B8702F2BAB3D13F298DA055</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -145,6 +160,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>985462C6C9A94E976F125F7A9D7B3E34</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9D6F66BBE6336D06C25E5B420D804A4F</key>
 		<dict>
 			<key>primary</key>
@@ -165,7 +185,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>C77B878E396AA91648691F4E022D0C61</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8FD79DA8533F4057A807ED28F5C4375</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F31ADFDCD7F69CE4F5E599A9275A29D3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
