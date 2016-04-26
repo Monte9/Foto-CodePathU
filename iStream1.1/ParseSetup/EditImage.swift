@@ -108,7 +108,7 @@ class EditImage: UIViewController, UIGestureRecognizerDelegate {
         if panGestureRecognizer.state == UIGestureRecognizerState.Began {
             let imageView = panGestureRecognizer.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
-            newlyCreatedFace.frame = CGRectMake(0, 0, 60, 60)
+            newlyCreatedFace.frame = CGRectMake(0, 0, 100, 100)
             captureView.addSubview(newlyCreatedFace)
             newlyCreatedFace.center = imageView.center
             newlyCreatedFace.center.y += trayView.frame.origin.y
