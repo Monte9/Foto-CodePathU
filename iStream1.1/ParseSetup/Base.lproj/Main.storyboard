@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zbu-NQ-vAm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zbu-NQ-vAm">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -229,7 +229,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hh3-Aw-4Yp" id="shI-d0-CMZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iStream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBZ-Aj-rzT">
@@ -436,7 +436,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Bl-Yc-x9f" id="Bw6-15-YlD">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="56"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OE-0e-bcC">
@@ -738,9 +738,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RyU-dQ-TzY">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1R-MN-qIf">
                                 <rect key="frame" x="0.0" y="64" width="320" height="465"/>
-                            </imageView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RyU-dQ-TzY">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZt-wp-lhZ">
                                 <rect key="frame" x="0.0" y="527" width="320" height="275"/>
                                 <subviews>
@@ -837,13 +843,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="RyU-dQ-TzY" firstAttribute="leading" secondItem="PlW-4x-fud" secondAttribute="leading" id="1RQ-nE-t8K"/>
-                            <constraint firstItem="L7J-mz-bhZ" firstAttribute="top" secondItem="RyU-dQ-TzY" secondAttribute="bottom" constant="39" id="8J8-1s-eoF"/>
                             <constraint firstAttribute="trailing" secondItem="OZt-wp-lhZ" secondAttribute="trailing" id="ECk-rM-80E"/>
                             <constraint firstItem="L7J-mz-bhZ" firstAttribute="top" secondItem="OZt-wp-lhZ" secondAttribute="bottom" constant="-234" id="Ntn-hC-2eF"/>
                             <constraint firstItem="OZt-wp-lhZ" firstAttribute="leading" secondItem="PlW-4x-fud" secondAttribute="leading" id="PeR-w5-gy6"/>
-                            <constraint firstItem="RyU-dQ-TzY" firstAttribute="top" secondItem="ZKI-9d-OFy" secondAttribute="bottom" id="YGJ-gt-ZlV"/>
-                            <constraint firstAttribute="trailing" secondItem="RyU-dQ-TzY" secondAttribute="trailing" id="r6K-Rh-bKz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Image" id="Ayc-LI-d4U">
@@ -854,6 +856,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="captureView" destination="B1R-MN-qIf" id="NPX-7r-j0d"/>
                         <outlet property="editImageView" destination="RyU-dQ-TzY" id="som-ma-5HA"/>
                         <outlet property="trayView" destination="OZt-wp-lhZ" id="bpy-oQ-DW2"/>
                     </connections>

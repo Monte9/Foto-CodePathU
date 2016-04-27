@@ -8,6 +8,19 @@
 
 import UIKit
 
+extension UIView {
+    
+    func capture() -> UIImage {
+        
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, self.opaque, UIScreen.mainScreen().scale)
+        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+}
+
 protocol EditImageDelegate
 {
     func sendImage(image: UIImage)
@@ -19,8 +32,9 @@ class EditImage: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var editImageView: UIImageView!
     
-    var delegate: EditImageDelegate?
+    @IBOutlet weak var captureView: UIView!
     
+    var delegate: EditImageDelegate?
     var bgImage: UIImage?
     
     var trayOriginalCenter: CGPoint!
@@ -47,9 +61,12 @@ class EditImage: UIViewController, UIGestureRecognizerDelegate {
     }
     
     @IBAction func onSaveImage(sender: AnyObject) {
-        let mergedImage = editImageView.capture()
+        let mergedImage = captureView.capture()
+        editImageView.image=mergedImage
+        
+       // newlyCreatedFace.removeFromSuperview()
         print("delegate called")
-        delegate?.sendImage(mergedImage)
+        delegate?.sendImage(editImageView.image!)
         navigationController?.popViewControllerAnimated(true)
     }
     
@@ -92,7 +109,7 @@ class EditImage: UIViewController, UIGestureRecognizerDelegate {
             let imageView = panGestureRecognizer.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
             newlyCreatedFace.frame = CGRectMake(0, 0, 60, 60)
-            view.addSubview(newlyCreatedFace)
+            captureView.addSubview(newlyCreatedFace)
             newlyCreatedFace.center = imageView.center
             newlyCreatedFace.center.y += trayView.frame.origin.y
             faceOriginalCenter = newlyCreatedFace.center
@@ -124,11 +141,11 @@ class EditImage: UIViewController, UIGestureRecognizerDelegate {
     func onCustomPan(panGestureRecognizer: UIPanGestureRecognizer) {
         
         // Absolute (x,y) coordinates in parent view
-        var point = panGestureRecognizer.locationInView(view)
+        var point = panGestureRecognizer.locationInView(captureView)
         
         // Relative change in (x,y) coordinates from where gesture began.
-        var translation = panGestureRecognizer.translationInView(view)
-        var velocity = panGestureRecognizer.velocityInView(view)
+        var translation = panGestureRecognizer.translationInView(captureView)
+        var velocity = panGestureRecognizer.velocityInView(captureView)
         
         var imageView = panGestureRecognizer.view as! UIImageView
         
