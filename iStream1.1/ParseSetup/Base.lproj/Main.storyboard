@@ -553,7 +553,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3g-EP-JGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="1703"/>
+            <point key="canvasLocation" x="1005" y="1807"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MbW-yl-Ssj">
@@ -626,7 +626,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL4-Y1-tjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="633" y="1709"/>
+            <point key="canvasLocation" x="584" y="1807"/>
         </scene>
         <!--Vertical View Controller-->
         <scene sceneID="jSK-HL-PPn">
@@ -1072,7 +1072,11 @@
                         <action selector="onEmojiPanGesture:" destination="MEu-ah-GCh" id="OyR-fg-5Se"/>
                     </connections>
                 </panGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="pPo-iD-w8G"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="pPo-iD-w8G">
+                    <connections>
+                        <action selector="onEmojiPanGesture:" destination="MEu-ah-GCh" id="rEJ-WV-deh"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1005" y="1009"/>
         </scene>
