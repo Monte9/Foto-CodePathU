@@ -77,4 +77,22 @@ class Stream: NSObject {
         return date
     }
     
+    
+//    func deletePhoto(completionHandler: (streams: [Stream]?, string: idNumber, success: Bool?, error: NSError?)-> ()) {
+//        var streams: [Stream]? = []
+//        //construct query
+//        let query = PFQuery(className: "Stream")
+//        query.whereKey("id", equalTo: idNumber)
+//        query.findObjectsInBackgroundWithBlock({ (objects : [PFObject]?, error: NSError?) -> Void in
+//            if error == nil {
+//                
+//                for object in objects! {
+//                    object.deleteInBackground()
+//                }
+//            }
+//        })
+//    
+//    }
+    
+    
 }

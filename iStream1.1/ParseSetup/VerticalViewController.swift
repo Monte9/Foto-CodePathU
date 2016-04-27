@@ -188,6 +188,7 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
      //   var cell = sender as! RACollectionViewCell
       //  VerticalViewController.Static.index = cell.imageView.
         VerticalViewController.Static.bgImage = bgImageView?.image
+        //Image.getImagesInStream(sender.streamId)
         self.performSegueWithIdentifier("DetailCellSegue", sender: self)
     }
     
@@ -244,7 +245,7 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
             giffyViewController.myImages = self.images!
             giffyViewController.copyRot = self.rotate
             giffyViewController.noBa=self
-        } else if segue.identifier == "DetailCellSegue" {
+        } else if segue.identifier == "DetailCellSegue" {            
             let editViewController = segue.destinationViewController as! EditImage
             editViewController.delegate = self
             editViewController.bgImage = VerticalViewController.Static.bgImage

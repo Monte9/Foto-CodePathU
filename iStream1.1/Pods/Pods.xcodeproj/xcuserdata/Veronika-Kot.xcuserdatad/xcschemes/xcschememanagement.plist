@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>BOZPongRefreshControl.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>BlurryModalSegue.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -49,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PullToBounce.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>RESideMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,7 +77,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>33BD1B8A1E2A26C6CBE2FA96519CED31</key>
+		<key>09661D25EA1351C0044D634FBDD6DF15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AD4945A193714F04A276E7CD926E34F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>614A1B2E7B8702F2BAB3D13F298DA055</key>
+		<key>626D49AD18621B0A3059EE726B27AE89</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>626D49AD18621B0A3059EE726B27AE89</key>
+		<key>6CE3855459E7B96752DD132992D5DAF7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>985462C6C9A94E976F125F7A9D7B3E34</key>
+		<key>9272818726858ED0F44D0B8D1FF27465</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,6 +122,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>AB5773EE824D8C2F8915DACE98D1DA96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B0214E86E9E229E292863BC821997C4D</key>
 		<dict>
 			<key>primary</key>
@@ -127,22 +137,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C77B878E396AA91648691F4E022D0C61</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C8FD79DA8533F4057A807ED28F5C4375</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F31ADFDCD7F69CE4F5E599A9275A29D3</key>
+		<key>EB129F6CA56250BA94AFEC78B6DFCBDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
