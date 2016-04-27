@@ -2,9 +2,9 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 use_frameworks!
+xcodeproj '/Users/Veronika-Kot/GitHub/iStream/iStream1.1/ParseSetup.xcodeproj'
 
 target 'ParseSetup' do
-
 pod 'Parse'
 
 pod 'Onboard'

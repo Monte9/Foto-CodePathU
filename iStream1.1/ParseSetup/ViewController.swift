@@ -11,14 +11,12 @@ import Parse
 import MGSwipeTableCell
 import NVActivityIndicatorView
 import BOZPongRefreshControl
+import PullToBounce
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     var streams: [Stream]? = []
-    
-
-    
     var loadingView: NVActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -37,8 +35,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
             loadingView.startAnimation()
             self.view.addSubview(loadingView)
-    
-       //=========
+        
+        
+        //=========
         //Make the status bar white color
         UIApplication.sharedApplication().statusBarStyle = .Default
         
@@ -53,6 +52,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         })
         //loadingView.stopAnimation()
     }
+    
+    
+    func makeHeader() {
+        let headerView = UIView()
+        headerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 64)
+        headerView.backgroundColor = UIColor(red:89/255, green: 165/255, blue: 216/255, alpha: 1)
+        self.view.addSubview(headerView)
+        
+        let headerLine = UILabel()
+        headerLine.frame = CGRect(x: 0, y: 0, width: 120, height: 100)
+        headerLine.center = CGPoint(x: headerView.frame.width/2 + 25, y: 20 + 44/2)
+        headerLine.textColor = UIColor.whiteColor()
+        headerLine.text = "SwiftyOS"
+        headerView.addSubview(headerLine)
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
+    
+    
     
     func stopLoading(){
         UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
@@ -69,6 +90,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 //    func viewDidLayoutSubviews() {
 //        self.pongRefreshControl = BOZPongRefreshControl.attachToTableView(self.tableView, withRefreshTarget: self, andRefreshAction: "refreshTriggered")
 //    }
+    
+    
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return streams?.count ?? 0
@@ -97,6 +120,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
     
+    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "showImagesSegue" {
