@@ -223,6 +223,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_background" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-BZ-JZZ">
                                 <rect key="frame" x="-22" y="-89" width="397" height="719"/>
+                                <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ix-Xq-vzO">
                                 <rect key="frame" x="0.0" y="499" width="320" height="69"/>
@@ -267,9 +268,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0y-xh-awy">
-                                                    <rect key="frame" x="263" y="12" width="51" height="31"/>
-                                                </switch>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-DA-coQ">
                                                     <rect key="frame" x="16" y="5" width="40" height="43"/>
                                                     <constraints>
@@ -289,6 +287,10 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0y-xh-awy">
+                                                    <rect key="frame" x="263" y="11" width="51" height="31"/>
+                                                    <color key="onTintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qVn-DA-coQ" firstAttribute="leading" secondItem="shI-d0-CMZ" secondAttribute="leading" constant="16" id="7qp-5V-PnS"/>
@@ -376,7 +378,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cZ-Mwh">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YhG-cZ-Mwh">
                                 <rect key="frame" x="20" y="269" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -429,13 +431,17 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="s1g-0X-phJ" secondAttribute="trailing" constant="6" id="3cH-ou-Cgq"/>
                             <constraint firstItem="aCB-qi-OCR" firstAttribute="leading" secondItem="hVS-re-OKE" secondAttribute="leading" id="Clk-Di-i2H"/>
+                            <constraint firstItem="ynJ-f1-iNP" firstAttribute="top" secondItem="YhG-cZ-Mwh" secondAttribute="bottom" constant="24" id="Eib-oy-quW"/>
                             <constraint firstItem="ynJ-f1-iNP" firstAttribute="leading" secondItem="hVS-re-OKE" secondAttribute="leading" id="Ouv-lW-v5c"/>
                             <constraint firstItem="YhG-cZ-Mwh" firstAttribute="top" secondItem="aCB-qi-OCR" secondAttribute="bottom" constant="26" id="RTZ-IV-8s6"/>
                             <constraint firstAttribute="trailing" secondItem="aCB-qi-OCR" secondAttribute="trailing" id="RcZ-pr-bMV"/>
                             <constraint firstItem="s1g-0X-phJ" firstAttribute="top" secondItem="iOJ-f1-IbQ" secondAttribute="bottom" constant="3" id="Sv3-Rl-n2K"/>
                             <constraint firstItem="YhG-cZ-Mwh" firstAttribute="centerY" secondItem="hVS-re-OKE" secondAttribute="centerY" id="XhF-rT-QIk"/>
+                            <constraint firstItem="YhG-cZ-Mwh" firstAttribute="top" secondItem="aCB-qi-OCR" secondAttribute="bottom" constant="26" id="b8G-NH-aa1"/>
                             <constraint firstItem="rdM-13-2Hd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ynJ-f1-iNP" secondAttribute="bottom" constant="195" id="bOB-dq-eSg"/>
+                            <constraint firstItem="YhG-cZ-Mwh" firstAttribute="leading" secondItem="hVS-re-OKE" secondAttribute="leading" constant="20" id="eJN-fF-PQU"/>
                             <constraint firstItem="YhG-cZ-Mwh" firstAttribute="centerX" secondItem="hVS-re-OKE" secondAttribute="centerX" id="jBR-bf-bxy"/>
+                            <constraint firstAttribute="trailing" secondItem="YhG-cZ-Mwh" secondAttribute="trailing" constant="20" id="kyY-MK-LMA"/>
                             <constraint firstItem="aCB-qi-OCR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="s1g-0X-phJ" secondAttribute="bottom" constant="142" id="oMC-yE-a7y"/>
                             <constraint firstItem="s1g-0X-phJ" firstAttribute="leading" secondItem="hVS-re-OKE" secondAttribute="leading" constant="273" id="qf4-iM-Cee"/>
                             <constraint firstAttribute="trailing" secondItem="ynJ-f1-iNP" secondAttribute="trailing" id="sGT-qp-4Bc"/>
@@ -761,7 +767,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="goH-VV-USg">
                         <barButtonItem key="rightBarButtonItem" image="playMovie1" id="8p5-QG-dTr">
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="D2K-OI-PzA" kind="custom" identifier="gifSegue" customClass="BlurryModalSegue" id="ZRf-6B-nfu"/>
                             </connections>
@@ -1154,5 +1160,5 @@
         <image name="stream" width="700" height="700"/>
         <image name="usePhoto" width="96" height="96"/>
     </resources>
-    <color key="tintColor" red="0.96470588235294119" green="0.1764705882352941" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.221094649" green="0.75154587250000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
 </document>
