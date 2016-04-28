@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zbu-NQ-vAm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zbu-NQ-vAm">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -118,11 +118,11 @@
                                             <action selector="onLibrary:" destination="m1e-YR-Jb2" eventType="touchUpInside" id="d6K-jm-bj1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frg-gA-TjN">
-                                        <rect key="frame" x="258" y="36" width="45" height="45"/>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frg-gA-TjN">
+                                        <rect key="frame" x="253" y="36" width="50" height="45"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="5HD-ox-l0q"/>
-                                            <constraint firstAttribute="width" constant="45" id="Csx-XB-WlT"/>
+                                            <constraint firstAttribute="width" constant="50" id="ame-Dx-BKF"/>
+                                            <constraint firstAttribute="height" constant="45" id="rNq-bC-VKb"/>
                                         </constraints>
                                         <state key="normal" image="frontBack"/>
                                         <connections>
@@ -232,8 +232,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Foto_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-DA-coQ">
-                                                    <rect key="frame" x="8" y="12" width="57" height="29"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="qVn-DA-coQ">
+                                                    <rect key="frame" x="14" y="12" width="51" height="29"/>
                                                 </imageView>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z0y-xh-awy">
                                                     <rect key="frame" x="263" y="12" width="51" height="31"/>
@@ -285,7 +285,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to Stream(s)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rQh-va-Gxm">
                                         <rect key="frame" x="105" y="24" width="159" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <color key="textColor" red="0.30588235289999999" green="0.5450980392" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -317,13 +317,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add to stream" id="tG6-Fu-fFi">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jn0-V9-lAA">
-                            <color key="tintColor" red="0.30588235289999999" green="0.5450980392" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onCancelButton:" destination="GiC-oY-iqk" id="Kbb-7R-92Y"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ioY-1F-ygG">
-                            <color key="tintColor" red="0.30588235289999999" green="0.5450980392" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="8ep-tF-28V" kind="custom" customClass="BlurryModalSegue" id="7xC-tg-Ida"/>
                             </connections>
@@ -357,16 +357,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="eventBackground" translatesAutoresizingMaskIntoConstraints="NO" id="5p3-dU-qqX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.60000002384185791" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxz-NV-SVp">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxz-NV-SVp">
                                 <rect key="frame" x="-20" y="0.0" width="351" height="568"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title Your Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCB-qi-OCR">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Title Your Story" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCB-qi-OCR">
                                 <rect key="frame" x="0.0" y="206" width="320" height="37"/>
                                 <color key="backgroundColor" red="0.221094649" green="0.75154587250000005" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="26"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -376,10 +378,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynJ-f1-iNP">
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynJ-f1-iNP">
                                 <rect key="frame" x="0.0" y="323" width="320" height="50"/>
                                 <color key="backgroundColor" red="0.22109464904228984" green="0.75154587251575311" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="29"/>
+                                <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Create Your Tale">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -389,13 +392,14 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1g-0X-phJ">
                                 <rect key="frame" x="250" y="20" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="F50-0f-dol"/>
                                     <constraint firstAttribute="width" constant="50" id="LVB-Uc-5rj"/>
                                 </constraints>
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="cancel">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="dismissViewController:" destination="8ep-tF-28V" eventType="touchUpInside" id="R6X-JS-9EY"/>
@@ -424,7 +428,7 @@
             </objects>
             <point key="canvasLocation" x="1764" y="327"/>
         </scene>
-        <!--iStreams-->
+        <!--Foto-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="streams" id="BYZ-38-t0r" customClass="ViewController" customModule="ParseSetup" customModuleProvider="target" sceneMemberID="viewController">
@@ -447,7 +451,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="56.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OE-0e-bcC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="created at" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OE-0e-bcC">
                                                     <rect key="frame" x="213" y="20" width="66" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -455,15 +459,16 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="pMP-gA-AjV">
                                                     <rect key="frame" x="8" y="9" width="40" height="40"/>
+                                                    <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="Qs6-GS-GRG"/>
                                                         <constraint firstAttribute="height" constant="40" id="btd-2k-ClP"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iStream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2P-AW-DXV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Stream" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q2P-AW-DXV">
                                                     <rect key="frame" x="56" y="14" width="85" height="24"/>
-                                                    <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="20"/>
-                                                    <color key="textColor" red="0.96470588239999999" green="0.1764705882" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="MalayalamSangamMN" family="Malayalam Sangam MN" pointSize="20"/>
+                                                    <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -494,8 +499,9 @@
                             <constraint firstItem="W4F-Id-KyH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pSX-D3-o6K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iStreams" id="Scs-Iq-U7Q">
+                    <navigationItem key="navigationItem" title="Foto" id="Scs-Iq-U7Q">
                         <barButtonItem key="leftBarButtonItem" image="camera" id="PZh-ME-YJT">
+                            <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backToCamera:" destination="BYZ-38-t0r" id="UAx-Nm-ali"/>
                             </connections>
@@ -509,7 +515,7 @@
             </objects>
             <point key="canvasLocation" x="185" y="1009"/>
         </scene>
-        <!--iStream Movie-->
+        <!--Foto-->
         <scene sceneID="oS3-bm-rsi">
             <objects>
                 <viewController id="HEl-US-GiB" customClass="gifViewController" customModule="ParseSetup" customModuleProvider="target" sceneMemberID="viewController">
@@ -523,6 +529,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ut6-MB-yX9">
                                 <rect key="frame" x="0.0" y="57" width="320" height="455"/>
+                                <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="3Gs-IY-neF"/>
                                     <constraint firstAttribute="height" constant="455" id="mT1-JS-SOW"/>
@@ -535,13 +542,15 @@
                             <constraint firstItem="ut6-MB-yX9" firstAttribute="centerY" secondItem="rz2-f1-YY0" secondAttribute="centerY" id="vAd-HY-lhq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="iStream Movie" id="CHL-hg-dQx">
+                    <navigationItem key="navigationItem" title="Foto" id="CHL-hg-dQx">
                         <barButtonItem key="leftBarButtonItem" title="Dismiss" id="OMO-wN-0BT">
+                            <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onDismissButton:" destination="HEl-US-GiB" id="TYy-w7-nPj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="rr0-8v-5B3">
+                            <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onShareButton:" destination="HEl-US-GiB" id="pP1-vO-zce"/>
                             </connections>
@@ -663,6 +672,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="T1p-9T-a08" firstAttribute="leading" secondItem="TGU-jt-ccN" secondAttribute="leading" id="9hU-Wf-h4X"/>
                             <constraint firstAttribute="trailing" secondItem="T1p-9T-a08" secondAttribute="trailing" id="BRd-8w-8iy"/>
@@ -720,7 +730,8 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="goH-VV-USg">
-                        <barButtonItem key="rightBarButtonItem" title="Create Movie" id="8p5-QG-dTr">
+                        <barButtonItem key="rightBarButtonItem" image="playMovie1" id="8p5-QG-dTr">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="D2K-OI-PzA" kind="custom" identifier="gifSegue" customClass="BlurryModalSegue" id="ZRf-6B-nfu"/>
                             </connections>
@@ -985,6 +996,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit Image" id="Ayc-LI-d4U">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="6gN-vI-uSL">
+                            <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onSaveImage:" destination="MEu-ah-GCh" id="SgV-JD-89n"/>
                             </connections>
@@ -1096,19 +1108,19 @@
         <image name="7" width="128" height="128"/>
         <image name="8" width="128" height="128"/>
         <image name="9" width="128" height="128"/>
-        <image name="Foto_logo" width="231" height="120"/>
         <image name="camera" width="24" height="24"/>
         <image name="cameraEye" width="390" height="390"/>
         <image name="cancel" width="50" height="50"/>
         <image name="capture" width="100" height="100"/>
-        <image name="done" width="24" height="24"/>
+        <image name="done" width="700" height="700"/>
         <image name="down_arrow" width="20" height="14"/>
         <image name="eventBackground" width="3600" height="3600"/>
-        <image name="frontBack" width="50" height="50"/>
-        <image name="library" width="96" height="96"/>
-        <image name="logo" width="72" height="72"/>
-        <image name="profile" width="50" height="50"/>
-        <image name="stream" width="96" height="96"/>
+        <image name="frontBack" width="700" height="700"/>
+        <image name="library" width="700" height="700"/>
+        <image name="logo" width="120" height="120"/>
+        <image name="playMovie1" width="29" height="29"/>
+        <image name="profile" width="700" height="700"/>
+        <image name="stream" width="700" height="700"/>
         <image name="usePhoto" width="96" height="96"/>
     </resources>
     <color key="tintColor" red="0.96470588235294119" green="0.1764705882352941" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>

@@ -49,6 +49,11 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>PullToBounce.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 		<key>RESideMenu.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -77,6 +82,16 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>09661D25EA1351C0044D634FBDD6DF15</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0AD4945A193714F04A276E7CD926E34F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>21F76CB78F007390F92D20B4EB7A23B1</key>
 		<dict>
 			<key>primary</key>
@@ -112,6 +127,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>6CE3855459E7B96752DD132992D5DAF7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>74F0A4943B1D47F98ED88E56369F4449</key>
 		<dict>
 			<key>primary</key>
@@ -132,6 +152,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9272818726858ED0F44D0B8D1FF27465</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9409EE15A26260A97F48AC515CE8A78C</key>
 		<dict>
 			<key>primary</key>
@@ -148,6 +173,11 @@
 			<true/>
 		</dict>
 		<key>A096731F617D77771C48A6DD6E6AA614</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB5773EE824D8C2F8915DACE98D1DA96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -183,6 +213,11 @@
 			<true/>
 		</dict>
 		<key>D7FF48F3092783E4E42B336F0DEF2D1A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB129F6CA56250BA94AFEC78B6DFCBDA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

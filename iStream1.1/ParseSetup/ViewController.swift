@@ -10,7 +10,6 @@ import UIKit
 import Parse
 import MGSwipeTableCell
 import NVActivityIndicatorView
-import BOZPongRefreshControl
 import PullToBounce
 import Foundation
 
@@ -220,7 +219,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
             loadingView = NVActivityIndicatorView(frame: frame)
             loadingView.type = .BallScaleRippleMultiple
-            loadingView.color = UIColor.redColor()
+            loadingView.color = UIColor(red:28/255, green: 165/255, blue: 246/255, alpha: 1)
             loadingView.padding = 20
             loadingView.startAnimation()
             self.view.addSubview(loadingView)
