@@ -221,6 +221,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_background" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-BZ-JZZ">
+                                <rect key="frame" x="-22" y="-89" width="397" height="719"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ix-Xq-vzO">
                                 <rect key="frame" x="0.0" y="499" width="320" height="69"/>
                                 <subviews>
@@ -447,7 +450,7 @@
             </objects>
             <point key="canvasLocation" x="1764" y="327"/>
         </scene>
-        <!--Foto-->
+        <!--Фoto-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="streams" id="BYZ-38-t0r" customClass="ViewController" customModule="ParseSetup" customModuleProvider="target" sceneMemberID="viewController">
@@ -459,12 +462,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_background" translatesAutoresizingMaskIntoConstraints="NO" id="pgE-L4-26T">
+                                <rect key="frame" x="-50" y="-82" width="420" height="732"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="57" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W4F-Id-KyH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="FYY-O7-jOL">
+                                    <rect key="frame" x="0.0" y="85" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="StreamCell" rowHeight="57" id="4Bl-Yc-x9f" customClass="StreamCell" customModule="ParseSetup" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="57"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="57"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Bl-Yc-x9f" id="Bw6-15-YlD">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="56.5"/>
@@ -512,13 +523,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="W4F-Id-KyH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9Rs-Xa-8vC"/>
+                            <constraint firstItem="W4F-Id-KyH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="64" id="9Rs-Xa-8vC"/>
                             <constraint firstItem="0He-cx-U9z" firstAttribute="top" secondItem="W4F-Id-KyH" secondAttribute="bottom" id="HxP-wY-ItN"/>
                             <constraint firstAttribute="trailing" secondItem="W4F-Id-KyH" secondAttribute="trailing" id="QDd-wz-kCe"/>
                             <constraint firstItem="W4F-Id-KyH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pSX-D3-o6K"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Foto" id="Scs-Iq-U7Q">
+                    <navigationItem key="navigationItem" title="Фoto" id="Scs-Iq-U7Q">
                         <barButtonItem key="leftBarButtonItem" image="camera" id="PZh-ME-YJT">
                             <color key="tintColor" red="0.10858544320000001" green="0.64886480270000002" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1137,6 +1148,7 @@
         <image name="frontBack" width="700" height="700"/>
         <image name="library" width="700" height="700"/>
         <image name="logo" width="120" height="120"/>
+        <image name="logo_background" width="1901" height="2230"/>
         <image name="playMovie1" width="29" height="29"/>
         <image name="profile" width="700" height="700"/>
         <image name="stream" width="700" height="700"/>

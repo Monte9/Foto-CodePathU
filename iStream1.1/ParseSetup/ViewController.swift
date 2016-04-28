@@ -211,19 +211,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.alpha = 0.0
-            let viewW=self.view.frame.width/2
-            let viewH=self.view.frame.width/2
-            let xV=self.view.frame.width/2-self.view.frame.width/4
-            let yV=self.view.frame.height/2-self.view.frame.width/4
+        let logo = UIImage(named: "Foto_logo1")
+        let imageView = UIImageView(image:logo)
+//        imageView.frame.size.width = 36
+//        imageView.frame.size.height = 36
+        self.navigationItem.titleView = imageView as UIView
         
-            let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
-            loadingView = NVActivityIndicatorView(frame: frame)
-            loadingView.type = .BallScaleRippleMultiple
-            loadingView.color = UIColor(red:28/255, green: 165/255, blue: 246/255, alpha: 1)
-            loadingView.padding = 20
-            loadingView.startAnimation()
-            self.view.addSubview(loadingView)
-            self.setupRefreshControl()
+        let viewW=self.view.frame.width/2
+        let viewH=self.view.frame.width/2
+        let xV=self.view.frame.width/2-self.view.frame.width/4
+        let yV=self.view.frame.height/2-self.view.frame.width/4
+    
+        let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
+        loadingView = NVActivityIndicatorView(frame: frame)
+        loadingView.type = .BallScaleRippleMultiple
+        loadingView.color = UIColor(red:28/255, green: 165/255, blue: 246/255, alpha: 1)
+        loadingView.padding = 20
+        loadingView.startAnimation()
+        self.view.addSubview(loadingView)
+        self.setupRefreshControl()
         //=========
         //Make the status bar white color
         UIApplication.sharedApplication().statusBarStyle = .Default
