@@ -65,7 +65,7 @@ class VerticalViewController: UIViewController,  UIGestureRecognizerDelegate, RA
         
         let frame = CGRect(x: xV, y: yV, width: viewW, height: viewH)
         loadingView = NVActivityIndicatorView(frame: frame)
-        loadingView.type = .BallPulseRise
+        loadingView.type = .BallPulseRise //.BallScaleRippleMultiple
         loadingView.color = UIColor(red:28/255, green: 165/255, blue: 246/255, alpha: 1)
         loadingView.padding = 20
         
