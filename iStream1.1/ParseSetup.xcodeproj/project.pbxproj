@@ -197,7 +197,7 @@
 				TargetAttributes = {
 					FAE6004A1C94FDC100EB3713 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = TKR788KR73;
+						DevelopmentTeam = C3V4QQ3VFL;
 					};
 				};
 			};

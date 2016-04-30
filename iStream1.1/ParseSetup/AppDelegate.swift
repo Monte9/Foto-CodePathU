@@ -51,12 +51,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let homeViewController = storyboard.instantiateViewControllerWithIdentifier("rootViewController")
                 self.window?.rootViewController = homeViewController
                 self.window?.makeKeyAndVisible()
+                NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isNewUser")
             }
             
             //show welcome screen
             defaultView = OnboardingViewController(backgroundImage: UIImage(named: "icon"), contents: [firstPage, secondPage, thirdPage])
             //Set the isNewUser value so that we dont show welcome screen the second time
-            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "isNewUser")
         } else {
             //take user to camera view since he is not a new user
             defaultView = storyboard.instantiateViewControllerWithIdentifier("rootViewController")
