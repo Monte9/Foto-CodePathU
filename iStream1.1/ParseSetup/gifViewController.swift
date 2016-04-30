@@ -370,7 +370,7 @@ class gifViewController: UIViewController {
         let imageAnimator = ImageAnimator(renderSettings: settings)
         imageAnimator.render() {
             print("Video created!")
-            let alertController = UIAlertController(title: "Default Style", message: "Yoohoo! Your video was created! Check your library!", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "Congrats!", message: "Yoohoo! Your video was created! Check your library!", preferredStyle: .Alert)
             let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             }
             alertController.addAction(OKAction)
