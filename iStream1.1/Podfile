@@ -2,9 +2,9 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
 use_frameworks!
+xcodeproj '/Users/Veronika-Kot/GitHub/iStream/iStream1.1/ParseSetup.xcodeproj'
 
 target 'ParseSetup' do
-
 pod 'Parse'
 
 pod 'Onboard'
@@ -14,6 +14,16 @@ pod 'RESideMenu', '~> 4.0.7'
 pod 'UIColor_Hex_Swift', '~> 2.1'
 
 pod 'BlurryModalSegue'
+
+pod 'MGSwipeTableCell'
+
+pod 'VideoSplashKit'
+
+pod 'NVActivityIndicatorView'
+
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
+
+pod 'PullToBounce'
 
 end
 

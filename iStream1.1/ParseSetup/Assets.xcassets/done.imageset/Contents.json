@@ -2,12 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Ok Filled-24.png",
+      "filename" : "plusCiricle.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Ok Filled-50.png",
       "scale" : "2x"
     },
     {
