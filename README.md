@@ -1,19 +1,19 @@
 
-# CodePath Univ. Final project - *iStream App*
+# CodePath Univ. Final project - *Foto App*
 
-**iStream** is an iOS App that lets users share their day through adding pictures to various streams. Streams can be converted into videos and shared on Twitter, Facebook and other social networks. 
+**Foto** is an iOS App that lets users create multiple collections to which they can add various images. These collections can be converted into a video with the click of one button for easy sharing. Videos are stored in the Photo library with social share enabled for Facebook and Twitter.  
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [x] User can create a new stream with custom title
-- [x] User can add pictures to an exiting/ new stream
+- [x] User can create a new collection and name it
+- [x] User can add pictures to an exiting/ new collection
 - [x] User can choose pictures from photo library
 - [x] User can take a picture from their phone camera
-- [x] User can create a video of the stream
-- [ ] User can share the video on Twitter and Facebook
-- [x] Super custom UI that looks rad af
+- [x] User can create a video of the collection
+- [x] Social share of videos enabled through Photos app 
+- [x] Custom UI that looks really rad 
 
 ## Video Walkthrough 
 
@@ -28,6 +28,10 @@ Here's a walkthrough of implemented user stories:
 2. Monte Thakkar
 
 3. Veronika Kotckovich
+
+## Final Presentation:
+
+This app was presented during Demo day at CCSF on April 28th, 2016. 
 
 ## 3rd party libraries-
 
