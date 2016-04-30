@@ -1,0 +1,182 @@
+
+.slide {
+    height:1080px;width:1920px;background-repeat:no-repeat;
+    -ms-background-size:cover;
+    background-size:cover;
+}
+
+.slide-wrapper{background-repeat:no-repeat;-moz-background-size:100%;-o-background-size:100%;-webkit-background-size:100%;background-size:100%;list-style-type:none;position:relative;overflow:hidden;margin:0;}
+.edit-wrapper{-webkit-transform-style:preserve-3d;transform-style:preserve-3d;-moz-perspective:700px;-ms-perspective:700px;-webkit-perspective:700px;perspective:700px;border:1px solid transparent;}
+.sd-element-image{border-style:solid; border-color:transparent;}
+.sd-element-shape.horizontal{height:10px;}
+.sd-element-shape.vertical{width:10px;}
+.sd-element-text{display:block;height:100%;min-width:50px;width:100%;-moz-box-sizing:border-box; -ms-word-wrap:break-word; word-wrap:break-word;}
+.sd-element-text:not(.empty):before{content:''!important;}
+.sd-element-text ul,.sd-element-text ol{margin:0 0 0 1em;}
+.sd-element-text.sd-text-direction_rtl ul,.sd-element-text.sd-text-direction_rtl ol{margin:0 1em 0 0;}
+.iframe-wrapper
+{   /*cursor:pointer;
+    background-repeat: no-repeat !important;
+    -moz-background-size: 100% 100% !important;
+    -o-background-size: 100% 100% !important;
+    -webkit-background-size: 100% 100% !important;
+    background-size: 100% 100% !important;*/
+    min-width: 90px;
+    min-height: 90px;
+    background-image:none !important; /*disable image behind element in the previous video patch*/
+}
+/*.iframe-wrapper > iframe{display:none;} this code was used for the video patch */
+
+
+/*.iframe-wrapper:before{content:'';display:block;position:absolute;z-index:1;left:0;top:0;right:0;bottom:0;background-repeat:no-repeat;background-position:center;  background-image: url(resources/24_video-play.png);}
+#video-player{position:absolute;z-index:9999;}
+#video-player > iframe{width:100%;height:100%;border-style:solid;border-width:0;}*/
+
+
+.hide { display:none;}
+.fixed-edit-wrapper, .fixed-edit-wrapper > [class*="sd-element"]{
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+    z-index: 0 !important;
+    cursor:default !important;
+}
+:focus {
+    outline: medium none;
+}
+
+    #video-player-shield
+    {
+       position:absolute;
+       top:0;
+       left:0;
+       width:100%;
+       height:100%;
+
+    }
+#context-menu{ display:none; }
+
+.sd-link-cover { 
+    position:absolute;
+    z-index:1;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0; 
+    opacity:0;
+    background:red; /*solves explorer issue where zero opacity OR transparent color on link affects clickability*/
+      
+}
+
+.embed-wrapper {
+    padding: 20px;
+}
+
+
+.sd-audio {
+cursor: pointer;
+}
+.sd-audio:after{
+    content:'';
+    background-image: url(resources/24_sound-icon.png);
+    width:29px;
+    height:24px;
+    position:absolute;
+    top: 10px;
+    right:10px;
+    
+}
+
+.sd-audio-play:after {
+ background-image: url(resources/24_sound-icon-active.png);
+}
+
+.name-tag,
+ .change-link-btn {/*dont show the info icons on the slide deck elements outside of editor*/
+display:none;
+}
+
+/*default value for custom scroll behaviour from theme*/
+.sd-page-scroll { 
+    overflow: auto !important;
+}
+
+.sd-page-scroll_x { 
+    overflow:hidden;
+    overflow-y:hidden;
+    overflow-x:auto;
+}
+
+.sd-page-scroll_y { 
+    overflow:hidden;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+.sd-text-effect_note { 
+    visibility:hidden; /*this is untill the effects css file is included in every page*/
+}
+
+.sd-element-embed {
+left: 20px !important;
+top: 20px !important;
+width: 100%;
+height: 100%;
+}
+
+.https .embed-wrapper {
+    cursor:pointer;
+}
+.https .sd-element-embed[src*="http://"] {
+background-image: url(resources/24_embed-not-https.png), url(resources/24_fuzzy-dot-pattern.png);
+background-repeat:no-repeat, repeat;
+background-position:center;
+background-size:90% auto, auto;
+background-color:white;
+pointer-events:none;
+}
+
+.sd-element-media {
+    border-style: solid;
+}
+
+.sd-element-text p { /*to match css side effects of player * rule  */
+    margin: 0;
+    padding: 0;
+}
+
+/* for for google charts */
+    
+.google-visualization-table {
+    display: block !important;
+ }
+    
+
+
+/*
+    NOTE: can use code below instead fo existing iframe-wrapper code to show images of youtube videos  behind the videos so that
+    untill they load somethign si visibly on the screen
+    TODO: replace the yellow play icon with a loading indicator. preferably not animated
+
+
+    .iframe-wrapper
+{   
+    min-width: 90px;
+    min-height: 90px;
+ 
+background-position:center;
+background-repeat:no-repeat;
+background-size:100%;
+background-origin: content-box;
+}
+
+
+.iframe-wrapper:before{content:'';display:block;position:absolute;z-index:-1;left:0;top:0;right:0;bottom:0;background-repeat:no-repeat;background-position:center;  background-image: url(resources/24_video-play.png);}
+
+
+
+    
+    */

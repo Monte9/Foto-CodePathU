@@ -1,0 +1,80 @@
+/*basic settings*/
+#world {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+    position:absolute;
+    top:0;
+}
+
+	#world #slide-box,
+	#world .slide {
+		width: 1920px;
+		height: 1080px;
+	}
+
+	#world #slide-box {
+		-webkit-transform-origin: 0% 0%;
+		-moz-transform-origin: 0% 0%;
+		-o-transform-origin: 0% 0%;
+		-ms-transform-origin: 0% 0%;
+		transform-origin: 0% 0%;
+		z-index: 2;
+		position: absolute;
+	    /* This prevents extra redraws on ipad (the squares phenomenon) !! */
+	    -webkit-backface-visibility: hidden;
+	    -moz-backface-visibility: hidden;
+	    backface-visibility: hidden;
+	}
+
+		#world .slide {
+			position: absolute;
+		    /* This prevents extra redraws on ipad (the squares phenomenon) !! */
+		    -webkit-backface-visibility: hidden;
+		    -moz-backface-visibility: hidden;
+		    -ms-backface-visibility: hidden;
+		    backface-visibility: hidden;
+			/*Chrome fix for slide rendering*/
+		    -webkit-transform: translate3d(0,0,0);
+		}
+
+#bg-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+	.bg-layer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+#fg-box {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+}
+
+	.fg-layer {
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+#scene-video {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
